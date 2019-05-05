@@ -20,7 +20,7 @@ import { SearchComponent } from './search/search.component';
 
 import 'hammerjs';
 
-// import { MatTabsModule } from '@angular/material';
+import { MatTabsModule } from '@angular/material';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -37,7 +37,7 @@ const routes: Routes = [
     BrowserAnimationsModule,
     NoopAnimationsModule,
     FormsModule,
-    // MatTabsModule,
+    MatTabsModule,
     HttpModule, 
     FormsModule, ReactiveFormsModule,
     NgxWebstorageModule.forRoot(),
@@ -49,7 +49,7 @@ const routes: Routes = [
     HelloComponent, 
     MembersComponent, 
     HomeComponent,
-    SearchComponent, 
+    SearchComponent
     // OthersComponent,
     // AddressComponent
   ],
