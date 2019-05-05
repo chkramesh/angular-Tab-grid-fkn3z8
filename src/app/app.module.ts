@@ -11,24 +11,21 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
-
 import { HomeComponent } from './home/home.component';
-import { MembersComponent } from './members/members.component';
 import { SearchComponent } from './search/search.component';
-// import { OthersComponent } from './others/others.component';
-// import { AddressComponent } from './address/address.component';
+import { OthersComponent } from './others/others.component';
+import { AddressComponent } from './address/address.component';
 
 import 'hammerjs';
 
-import { MatTabsModule } from '@angular/material';
+// import { MatTabsModule } from '@angular/material';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'members', component: MembersComponent },
   { path: 'search', component: SearchComponent },
-  // { path: 'others', component: OthersComponent },
-  // { path: 'address', component: AddressComponent }
+  { path: 'others', component: OthersComponent },
+  { path: 'address', component: AddressComponent }
 ];
 
 @NgModule({
@@ -37,21 +34,19 @@ const routes: Routes = [
     BrowserAnimationsModule,
     NoopAnimationsModule,
     FormsModule,
-    MatTabsModule,
+    // MatTabsModule,
     HttpModule, 
-    FormsModule, ReactiveFormsModule,
-    NgxWebstorageModule.forRoot(),
+    FormsModule, ReactiveFormsModule, NgxWebstorageModule.forRoot(),
     MaterialModule, FlexLayoutModule,
     RouterModule.forRoot(routes)
   ],
   declarations: [
     AppComponent, 
     HelloComponent, 
-    MembersComponent, 
-    HomeComponent,
-    SearchComponent
-    // OthersComponent,
-    // AddressComponent
+    HomeComponent, 
+    SearchComponent, 
+    OthersComponent,
+    AddressComponent
   ],
   bootstrap: [AppComponent]
 })
