@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Stackbliz
 import { A11yModule } from '@angular/cdk/a11y';
 import { BidiModule } from '@angular/cdk/bidi';
 import { ObserversModule } from '@angular/cdk/observers';
@@ -10,6 +11,7 @@ import { PortalModule } from '@angular/cdk/portal';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { CdkTableModule } from '@angular/cdk/table';
+import { CdkTreeModule } from '@angular/cdk/tree';
 
 import { 
   MatAutocompleteModule,
@@ -79,6 +81,7 @@ import {
     MatTooltipModule,
     MatStepperModule,
   ],
+
   exports: [
      // CDK
     A11yModule,
@@ -90,6 +93,7 @@ import {
     ScrollDispatchModule,
     CdkStepperModule,
     CdkTableModule,
+    CdkTreeModule,
 
     MatAutocompleteModule,
     MatButtonModule,
