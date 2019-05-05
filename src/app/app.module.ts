@@ -19,7 +19,6 @@ import { AddressComponent } from './address/address.component';
 import 'hammerjs';
 
 // import { MatTabsModule } from '@angular/material';
-
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
