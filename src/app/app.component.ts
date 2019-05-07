@@ -52,3 +52,10 @@ export class AppComponent  {
 // https://stackblitz.com/edit/angular-s8v7re
 // https://stackblitz.com/edit/angular-mldo1i
 // https://stackblitz.com/edit/angular-x4vwqg
+
+
+
+
+// https://stackoverflow.com/questions/46769042/subscribe-to-observable-is-returning-undefined
+// https://codecraft.tv/courses/angular/http/http-with-observables/
+// https://appdividend.com/2018/12/08/angular-7-observables-tutorial-with-example/
