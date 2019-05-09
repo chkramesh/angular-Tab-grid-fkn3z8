@@ -24,7 +24,7 @@ export class SearchService {
 
   // private results: Observable<SearchItem[]>;
 
-  apiRoot: string = "https://itunes.apple.com/search";
+  apiRoot: string = 'https://itunes.apple.com/search';
   constructor(private http: HttpClient) {}
 
   search(term: string): Observable<SearchItem[]> {
