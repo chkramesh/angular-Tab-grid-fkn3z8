@@ -11,6 +11,9 @@ import { HttpClientModule } from "@angular/common/http";
 import { NgxWebstorageModule } from 'ngx-webstorage';
 
 import { Routes, RouterModule } from '@angular/router';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
+import { InMemoryDataService }  from '../server/in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -46,8 +49,12 @@ const routes: Routes = [
     // MatTabsModule,
     // HttpModule, 
     HttpClientModule,
-    FormsModule, ReactiveFormsModule, NgxWebstorageModule.forRoot(),
+    FormsModule, ReactiveFormsModule,
+    NgxWebstorageModule.forRoot(),
     MaterialModule, FlexLayoutModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService
+    ),
     RouterModule.forRoot(routes)
   ],
   declarations: [
