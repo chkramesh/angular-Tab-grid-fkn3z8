@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 
 import { Student } from '../model';
 import { User } from '../models';
-import { SearchItem } from '../models';
 
 // import { User } from '../models';
 // import { SearchItem } from '../search-items';
