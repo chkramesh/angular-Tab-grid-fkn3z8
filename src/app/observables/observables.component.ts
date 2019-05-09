@@ -21,6 +21,18 @@ export class ObservablesComponent implements OnInit {
   constructor(private itunes: SearchService) { }
 
   ngOnInit() {
+     this.searchField = new FormControl();
+     this.results = this.searchField.valueChanges.pipe(
+      debounceTime(400),
+      distinctUntilChanged(),
+      tap(_ => (this.loading = true)),
+      switchMap(term => this.itunes.search(term)),
+      tap(_ => (this.loading = false))
+    );
+  }
+
+  doSearch(term: string) {
+    this.itunes.search(term);
   }
 
   // private loading: boolean = false;
