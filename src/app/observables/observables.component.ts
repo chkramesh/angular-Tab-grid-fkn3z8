@@ -4,6 +4,9 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { ReactiveFormsModule, FormControl, FormsModule } from "@angular/forms";
 
+import { SearchService } from '../service/search.service';
+import { SearchItem } from '../models';
+
 @Component({
   selector: 'app-observables',
   templateUrl: './observables.component.html',
@@ -11,7 +14,11 @@ import { ReactiveFormsModule, FormControl, FormsModule } from "@angular/forms";
 })
 export class ObservablesComponent implements OnInit {
 
-  constructor() { }
+  private loading: boolean = false;
+  private results: Observable<SearchItem[]>;
+  private searchField: FormControl;
+
+  constructor(private itunes: SearchService) { }
 
   ngOnInit() {
   }
