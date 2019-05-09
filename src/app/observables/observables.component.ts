@@ -31,8 +31,17 @@ export class ObservablesComponent implements OnInit {
     );
   }
 
+  // below methos is good, if we use async pipe in html 
   doSearch(term: string) {
     this.itunes.search(term);
   }
+
+  // doSearch(term:string) {
+  //   this.loading = true;
+  //   this.itunes.search(term).subscribe( data => {
+  //     this.loading = false;
+  //     this.results = data (1)
+  //   });
+  // }
 
 }
