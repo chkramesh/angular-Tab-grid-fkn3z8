@@ -18,6 +18,8 @@ import { AddressComponent } from './address/address.component';
 import { MembersComponent } from './members/members.component';
 import { ObservablesComponent } from './observables/observables.component';
 
+import { SearchService } from './service/search.service';
+
 
 import 'hammerjs';
 
@@ -54,6 +56,7 @@ const routes: Routes = [
     MembersComponent,
     ObservablesComponent
   ],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

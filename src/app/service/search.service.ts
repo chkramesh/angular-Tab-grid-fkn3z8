@@ -21,7 +21,7 @@ import { SearchItem } from '../models';
 @Injectable()
 export class SearchService {
 
-  private results: Observable<SearchItem[]>;
+  // private results: Observable<SearchItem[]>;
 
   apiRoot: string = "https://itunes.apple.com/search";
   constructor(private http: HttpClient) {}
