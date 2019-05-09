@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient } from "@angular/common/http";
+// import { HttpClientModule } from "@angular/common/http";
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
@@ -27,6 +28,7 @@ export class SearchService {
   constructor(private http: HttpClient) {}
 
   search(term: string): Observable<SearchItem[]> {
+    console.log('term = ' + term);
     let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20`;
     return this.http.get(apiURL).pipe(
       map(res => {

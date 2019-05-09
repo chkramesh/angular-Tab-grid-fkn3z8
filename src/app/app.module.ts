@@ -4,7 +4,10 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
-import { HttpModule, Http } from '@angular/http';
+// import { HttpModule, Http } from '@angular/http';
+// import { HttpClientModule, HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
+
 import { NgxWebstorageModule } from 'ngx-webstorage';
 
 import { Routes, RouterModule } from '@angular/router';
@@ -41,7 +44,8 @@ const routes: Routes = [
     NoopAnimationsModule,
     FormsModule,
     // MatTabsModule,
-    HttpModule, 
+    // HttpModule, 
+    HttpClientModule,
     FormsModule, ReactiveFormsModule, NgxWebstorageModule.forRoot(),
     MaterialModule, FlexLayoutModule,
     RouterModule.forRoot(routes)
@@ -56,7 +60,7 @@ const routes: Routes = [
     MembersComponent,
     ObservablesComponent
   ],
-  providers: [SearchService],
+  providers: [HttpClientModule, SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
