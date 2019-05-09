@@ -16,6 +16,8 @@ import { SearchComponent } from './search/search.component';
 import { OthersComponent } from './others/others.component';
 import { AddressComponent } from './address/address.component';
 import { MembersComponent } from './members/members.component';
+import { ObservablesComponent } from './observables/observables.component';
+
 
 import 'hammerjs';
 
@@ -26,7 +28,8 @@ const routes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'others', component: OthersComponent },
   { path: 'address', component: AddressComponent },
-  { path: 'members', component: MembersComponent }
+  { path: 'members', component: MembersComponent },
+  { path: 'observables', component: ObservablesComponent }
 ];
 
 @NgModule({
@@ -48,7 +51,8 @@ const routes: Routes = [
     SearchComponent, 
     OthersComponent,
     AddressComponent,
-    MembersComponent
+    MembersComponent,
+    ObservablesComponent
   ],
   bootstrap: [AppComponent]
 })
