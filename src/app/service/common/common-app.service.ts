@@ -24,7 +24,7 @@ export class CommonAppService {
   //  { id: 1, username:'jbrown', firstName: 'Windstorm', lastName: 'Windstorm', gender:'M', country:'USA', state:'NJ', location:'USA', lang: 'Eng', region:'EAST', role: 'admin'},
 
   public getUser(userId: number): Observable<any> {
-    console.log('getUser appUrl = ' + this.appUrl);
+    console.log('Service getUser appUrl = ' + this.appUrl);
     return this.http.get<User>(this.appUrl).pipe(
       catchError((error: any) => {
            console.error(error);

@@ -20,7 +20,8 @@ export class ObservablesComponent implements OnInit {
   private results: Observable<SearchItem[]>;
   private searchField: FormControl;
 
-  private userResults: Observable<User[]>;
+  // private userResults: Observable<User[]>;
+  userResults: Observable<User[]>;
 
   constructor(private itunes: SearchService, private commonappservice: CommonAppService) { }
 
@@ -33,9 +34,12 @@ export class ObservablesComponent implements OnInit {
       switchMap(term => this.itunes.search(term)),
       tap(_ => (this.loading = false))
     );
-
+    
     this.getUser(1);
-    this.getUserOnLoad(1);
+     this.getUserOnLoad(1);
+    // this.userResults = this.getUser(1);
+    // this.userResults = this.getUserOnLoad(1);
+    console.log(' this.userResults = ' + this.userResults);
   }
 
   // below methos is good, if we use async pipe in html 

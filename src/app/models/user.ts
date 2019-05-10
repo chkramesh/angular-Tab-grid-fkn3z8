@@ -1,19 +1,19 @@
 
-export class User {
-   constructor( 
-     public id: number,
-     public username: string,
-     public firstName: string,
-     public lastName: string,
-     public gender: string,
-     public country: string,
-     public state: string,
-     public location: string,
-     public lang: string,
-     public region: string,
-     public role: string
-   ){};
-}
+// export class User {
+//    constructor( 
+//      public id: number,
+//      public username: string,
+//      public firstName: string,
+//      public lastName: string,
+//      public gender: string,
+//      public country: string,
+//      public state: string,
+//      public location: string,
+//      public lang: string,
+//      public region: string,
+//      public role: string
+//    ){};
+// }
 
 
 // export class User {
@@ -55,44 +55,44 @@ export class User {
 //    };    
 // }
 
-// export class User {
-//     public id: number;
-//     public username: string;
-//     public firstName: string;
-//     public lastName: string;
-//     public gender: string;
-//     public country: string;
-//     public state: string;
-//     public location: string;
-//     public lang: string;
-//     public region: string;
-//     public role: string;
+export class User {
+    public id: number;
+    public username: string;
+    public firstName: string;
+    public lastName: string;
+    public gender: string;
+    public country: string;
+    public state: string;
+    public location: string;
+    public lang: string;
+    public region: string;
+    public role: string;
 
-//    constructor( 
-//      id: number,
-//      username: string,
-//      firstName: string,
-//      lastName: string,
-//      gender: string,
-//      country: string,
-//      state: string,
-//      location: string,
-//      lang: string,
-//      region: string,
-//      role: string
-//    ){
-//      this.id = id;
-//      this.username = username;
-//      this.firstName = firstName;
-//      this.gender = gender;
-//      this.country = country;
-//      this.state = state;
-//      this.location = location;
-//      this.lang = lang;
-//      this.region = region;
-//      this.role = role;
-//    };    
-// }
+   constructor( 
+     id: number,
+     username: string,
+     firstName: string,
+     lastName: string,
+     gender: string,
+     country: string,
+     state: string,
+     location: string,
+     lang: string,
+     region: string,
+     role: string
+   ){
+     this.id = id;
+     this.username = username;
+     this.firstName = firstName;
+     this.gender = gender;
+     this.country = country;
+     this.state = state;
+     this.location = location;
+     this.lang = lang;
+     this.region = region;
+     this.role = role;
+   };    
+}
 
 
 
