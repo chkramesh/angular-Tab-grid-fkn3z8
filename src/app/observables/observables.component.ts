@@ -47,10 +47,19 @@ export class ObservablesComponent implements OnInit {
   //   });
   // }
 
-   getUserOnLoad(id:number) {
-     console.log('Observable Component getUserOnLoad id = ' + id);
+   getUser(userId:number) {
+    console.log('Observable Component getUserOnLoad id = ' + userId);
     this.loading = true;
-    this.commonappservice.getUserOnLoad(id).subscribe( data => {
+    this.commonappservice.getUser(userId).subscribe( data => {
+      this.loading = false;
+      this.results = data (1)
+    });
+  }
+
+   getUserOnLoad(userId:number) {
+     console.log('Observable Component getUserOnLoad userId = ' + userId);
+    this.loading = true;
+    this.commonappservice.getUserOnLoad(userId).subscribe( data => {
       this.loading = false;
       this.results = data (1)
     });

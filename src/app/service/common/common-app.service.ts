@@ -20,7 +20,7 @@ export class CommonAppService {
 
   //  { id: 1, username:'jbrown', firstName: 'Windstorm', lastName: 'Windstorm', gender:'M', country:'USA', state:'NJ', location:'USA', lang: 'Eng', region:'EAST', role: 'admin'},
 
-  public getUser(userId: string): Observable<any> {
+  public getUser(userId: number): Observable<any> {
     console.log('getUser appUrl = ' + this.appUrl);
     return this.http.get<User>(this.appUrl).pipe(
       catchError((error: any) => {
@@ -30,8 +30,8 @@ export class CommonAppService {
     );
   }
 
-  public getUserOnLoad(userId: string): Observable<User[]> {
-    console.log('userId = ' + userId);
+  public getUserOnLoad(userId: number): Observable<User[]> {
+    console.log('getUserOnLoad userId = ' + userId);
     // let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20`;
     return this.http.get(this.appUrl).pipe(
       map(res => {
