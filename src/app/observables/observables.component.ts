@@ -5,6 +5,7 @@ import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } f
 import { ReactiveFormsModule, FormControl, FormsModule } from "@angular/forms";
 
 import { SearchService } from '../service/search.service';
+import { CommonAppService } from '../service/common/common-app.service';
 import { SearchItem } from '../models';
 
 @Component({
@@ -18,7 +19,7 @@ export class ObservablesComponent implements OnInit {
   private results: Observable<SearchItem[]>;
   private searchField: FormControl;
 
-  constructor(private itunes: SearchService) { }
+  constructor(private itunes: SearchService, private commonappservice: CommonAppService) { }
 
   ngOnInit() {
      this.searchField = new FormControl();
@@ -29,6 +30,8 @@ export class ObservablesComponent implements OnInit {
       switchMap(term => this.itunes.search(term)),
       tap(_ => (this.loading = false))
     );
+
+    this.getUserOnLoad(1);
   }
 
   // below methos is good, if we use async pipe in html 
@@ -43,5 +46,13 @@ export class ObservablesComponent implements OnInit {
   //     this.results = data (1)
   //   });
   // }
+
+   getUserOnLoad(id:number) {
+    this.loading = true;
+    this.commonappservice.getUserOnLoad(id).subscribe( data => {
+      this.loading = false;
+      this.results = data (1)
+    });
+  }
 
 }
