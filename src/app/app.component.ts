@@ -622,3 +622,6 @@ export class AppComponent  {
 //}
 // TemplateStringsArray
 // fromPromise
+
+// https://forum.ionicframework.com/t/get-subscribe-data-out-of-function/76612/2
+// https://angular.io/guide/http
