@@ -48,6 +48,7 @@ export class ObservablesComponent implements OnInit {
   // }
 
    getUserOnLoad(id:number) {
+     console.log('Observable Component getUserOnLoad id = ' + id);
     this.loading = true;
     this.commonappservice.getUserOnLoad(id).subscribe( data => {
       this.loading = false;
