@@ -30,7 +30,7 @@ export class CommonAppService {
     );
   }
 
-  public search(userId: string): Observable<User[]> {
+  public getUserOnLoad(userId: string): Observable<User[]> {
     console.log('userId = ' + userId);
     // let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20`;
     return this.http.get(this.appUrl).pipe(
