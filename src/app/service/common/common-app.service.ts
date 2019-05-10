@@ -5,6 +5,8 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
+// import { map) 'rxjs/add/operator/map';
+
 import { User } from '../../models';
 // import { Student } from '../../model';
 // import { User } from '.../models';
@@ -32,11 +34,12 @@ export class CommonAppService {
   }
 
   public getUserOnLoad(userId: number): Observable<User[]> {
-    console.log('getUserOnLoad userId = ' + userId);
+    console.log('getUserOnLoad 1 userId = ' + userId);
     // let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20`;
     return this.http.get(this.appUrl).pipe(
       map(res => {
         return res.results.map(item => {
+          console.log('getUserOnLoad 2 userId = ' + userId);
           return new User(
             item.id,
             item.username,
