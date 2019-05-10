@@ -7,6 +7,7 @@ import { ReactiveFormsModule, FormControl, FormsModule } from "@angular/forms";
 import { SearchService } from '../service/search.service';
 import { CommonAppService } from '../service/common/common-app.service';
 import { SearchItem } from '../models';
+import { User } from '../models';
 
 @Component({
   selector: 'app-observables',
@@ -18,6 +19,8 @@ export class ObservablesComponent implements OnInit {
   private loading: boolean = false;
   private results: Observable<SearchItem[]>;
   private searchField: FormControl;
+
+  private userResults: Observable<User[]>;
 
   constructor(private itunes: SearchService, private commonappservice: CommonAppService) { }
 
@@ -31,6 +34,7 @@ export class ObservablesComponent implements OnInit {
       tap(_ => (this.loading = false))
     );
 
+    this.getUser(1);
     this.getUserOnLoad(1);
   }
 
@@ -43,7 +47,7 @@ export class ObservablesComponent implements OnInit {
   //   this.loading = true;
   //   this.itunes.search(term).subscribe( data => {
   //     this.loading = false;
-  //     this.results = data (1)
+  //     this.results = data
   //   });
   // }
 
@@ -52,7 +56,7 @@ export class ObservablesComponent implements OnInit {
     this.loading = true;
     this.commonappservice.getUser(userId).subscribe( data => {
       this.loading = false;
-      this.results = data (1)
+      this.userResults = data
     });
   }
 
@@ -61,7 +65,7 @@ export class ObservablesComponent implements OnInit {
     this.loading = true;
     this.commonappservice.getUserOnLoad(userId).subscribe( data => {
       this.loading = false;
-      this.results = data (1)
+      this.userResults = data
     });
   }
 

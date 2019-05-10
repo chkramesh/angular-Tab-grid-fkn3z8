@@ -1,3 +1,20 @@
+
+export class User {
+   constructor( 
+     public id: number,
+     public username: string,
+     public firstName: string,
+     public lastName: string,
+     public gender: string,
+     public country: string,
+     public state: string,
+     public location: string,
+     public lang: string,
+     public region: string,
+     public role: string
+   ){};
+}
+
 // export class User {
 //     id: number;
 //     username: string;
@@ -76,24 +93,6 @@
 //    };    
 // }
 
-
-
-
-export class User {
-   constructor( 
-     public id: number,
-     public username: string,
-     public firstName: string,
-     public lastName: string,
-     public gender: string,
-     public country: string,
-     public state: string,
-     public location: string,
-     public lang: string,
-     public region: string,
-     public role: string
-   ){};
-}
 
 
   // { id: 1, username:'jbrown', firstName: 'Windstorm', lastName: 'Windstorm', gender:'M', country:'USA', state:'NJ', 

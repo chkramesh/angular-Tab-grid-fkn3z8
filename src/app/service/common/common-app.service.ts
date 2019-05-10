@@ -13,6 +13,7 @@ import { User } from '../../models';
 @Injectable()
 export class CommonAppService {
 
+ // private results: Observable<SearchItem[]>;
   // private membersUrl = 'api/members';
   private appUrl = 'api/user';
 
