@@ -105,14 +105,14 @@ export class InMemoryDataService implements InMemoryDbService {
       {    id: 2,    description: 'Paint the garage' }
     ];
 
-    let user = [
-      { id: 1, username:'jbrown', firstName: 'Windstorm', lastName: 'Windstorm', gender:'M', country:'USA', state:'NJ', location:'USA', lang: 'Eng', region:'EAST', role: 'admin'},
-      { id: 1, username:'johns', firstName: 'John', lastName: 'smith', gender:'M', country:'USA', state:'NY', location:'USA', lang: 'Eng', region:'west',role: 'manager'},
-      { id: 1, username:'mortj', firstName: 'Mort', lastName: 'Johnston', gender:'M', country:'USA', state:'NJ', location:'USA', lang: 'Eng', region:'Midwest',role: 'regular'},
-      { id: 1, username:'maryl', firstName: 'Mary', lastName: 'Linda', gender:'F', country:'CAN', state:'', location:'CAN', lang: 'french', region:'',role: 'regular'},
-    ];
+    // let user = [
+    //   { id: 1, username:'jbrown', firstName: 'Windstorm', lastName: 'Windstorm', gender:'M', country:'USA', state:'NJ', location:'USA', lang: 'Eng', region:'EAST', role: 'admin'},
+    //   { id: 1, username:'johns', firstName: 'John', lastName: 'smith', gender:'M', country:'USA', state:'NY', location:'USA', lang: 'Eng', region:'west',role: 'manager'},
+    //   { id: 1, username:'mortj', firstName: 'Mort', lastName: 'Johnston', gender:'M', country:'USA', state:'NJ', location:'USA', lang: 'Eng', region:'Midwest',role: 'regular'},
+    //   { id: 1, username:'maryl', firstName: 'Mary', lastName: 'Linda', gender:'F', country:'CAN', state:'', location:'CAN', lang: 'french', region:'',role: 'regular'},
+    // ];
 
-    return { members, countryList, heroes, user };
+    return { members, countryList, heroes };
   }
 
 

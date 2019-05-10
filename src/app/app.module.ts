@@ -25,6 +25,7 @@ import { MembersComponent } from './members/members.component';
 import { ObservablesComponent } from './observables/observables.component';
 
 import { SearchService } from './service/search.service';
+import { CommonAppService } from './service/common/common-app.service';
 
 
 import 'hammerjs';
@@ -67,7 +68,7 @@ const routes: Routes = [
     MembersComponent,
     ObservablesComponent
   ],
-  providers: [HttpClientModule, SearchService],
+  providers: [HttpClientModule, SearchService, CommonAppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
