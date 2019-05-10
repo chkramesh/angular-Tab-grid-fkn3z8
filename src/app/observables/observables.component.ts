@@ -21,7 +21,8 @@ export class ObservablesComponent implements OnInit {
   private searchField: FormControl;
 
   // private userResults: Observable<User[]>;
-  userResults: Observable<User[]>;
+  public userResults: Observable<User[]>;
+  // userResults: Observable<User[]>;
 
   constructor(private itunes: SearchService, private commonappservice: CommonAppService) { }
 
@@ -35,11 +36,11 @@ export class ObservablesComponent implements OnInit {
       tap(_ => (this.loading = false))
     );
     
-    this.getUser(1);
-     this.getUserOnLoad(1);
-    // this.userResults = this.getUser(1);
+    // this.getUser(1);
+    // this.getUserOnLoad(1);
+    this.userResults = this.getUser(1);
     // this.userResults = this.getUserOnLoad(1);
-    console.log(' this.userResults = ' + this.userResults);
+    console.log(' 1 this.userResults = ' + this.userResults);
   }
 
   // below methos is good, if we use async pipe in html 
@@ -60,8 +61,17 @@ export class ObservablesComponent implements OnInit {
     this.loading = true;
     this.commonappservice.getUser(userId).subscribe( data => {
       this.loading = false;
-      this.userResults = data
+      this.userResults = data;
+      this.processResults();
+      console.log(' 2 this.userResults = ' + this.userResults);
     });
+  }
+
+  processResults() {
+    // Do some stuff with your results, this.Result is set now
+
+    console.log(' 3 this.userResults = ' + this.userResults);
+
   }
 
    getUserOnLoad(userId:number) {
@@ -71,7 +81,7 @@ export class ObservablesComponent implements OnInit {
     this.commonappservice.getUserOnLoad(userId).subscribe( data => {
       console.log('Observable Component data = ' + data);
       this.loading = false;
-      this.userResults = data
+      this.userResults = data;
     });
   }
 
