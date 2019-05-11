@@ -33,26 +33,29 @@ export class CommonAppService {
     );
   }
 
+  results: any[]; //define it here
+
   public getUserOnLoad(userId: number): Observable<User[]> {
-    console.log('getUserOnLoad 1 userId = ' + userId);
+    console.log('getUserOnLoad 3 - 1 userId = ' + userId);
     // let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20`;
     return this.http.get(this.appUrl).pipe(
       map(res => {
+        // console.log('getUserOnLoad 3 - 2 userId = ' + res.id); 
         return res.results.map(item => {
-          console.log('getUserOnLoad 2 userId = ' + userId);
-          return new User(
-            item.id,
-            item.username,
-            item.firstName,
-            item.lastName,
-            item.gender,
-            item.country,
-            item.state,
-            item.location,
-            item.lang,
-            item.region,
-            item.role
-          );
+          console.log('getUserOnLoad 3 - 2 userId = ' + userId);
+          // return new User(
+          //   item.id,
+          //   item.username,
+          //   item.firstName,
+          //   item.lastName,
+          //   item.gender,
+          //   item.country,
+          //   item.state,
+          //   item.location,
+          //   item.lang,
+          //   item.region,
+          //   item.role
+          // );
         });
       })
     );

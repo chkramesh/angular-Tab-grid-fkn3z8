@@ -36,9 +36,9 @@ export class ObservablesComponent implements OnInit {
       tap(_ => (this.loading = false))
     );
     
-    // this.getUser(1);
-    // this.getUserOnLoad(1);
-    this.userResults = this.getUser(1);
+    this.getUser(1);
+    //this.getUserOnLoad(1);
+    // this.userResults = this.getUser(1);
     // this.userResults = this.getUserOnLoad(1);
     console.log(' 1 this.userResults = ' + this.userResults);
   }
@@ -64,6 +64,12 @@ export class ObservablesComponent implements OnInit {
       this.userResults = data;
       this.processResults();
       console.log(' 2 this.userResults = ' + this.userResults);
+
+      console.log('HTTP response', data);
+        console.log('HTTP response : Headers', data.headers);
+        console.log('HTTP response : status', data.status);
+        console.log('HTTP response : url', data.body);
+        console.log('HTTP response : body', data.json());
     });
   }
 
