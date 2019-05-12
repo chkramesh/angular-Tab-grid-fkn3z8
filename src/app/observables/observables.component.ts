@@ -37,6 +37,7 @@ export class ObservablesComponent implements OnInit {
     );
     
     this.getUser(1);
+    this.doSearchTest(1);
     //this.getUserOnLoad(1);
     // this.userResults = this.getUser(1);
     // this.userResults = this.getUserOnLoad(1);
@@ -46,6 +47,14 @@ export class ObservablesComponent implements OnInit {
   // below methos is good, if we use async pipe in html 
   doSearch(term: string) {
     this.itunes.search(term);
+  }
+
+  doSearchTest(term:string) {
+    this.loading = true;
+    this.commonappservice.search(term).subscribe( data => {
+      this.loading = false;
+      // this.userResults = data
+    });
   }
 
   // doSearch(term:string) {
@@ -65,11 +74,6 @@ export class ObservablesComponent implements OnInit {
       this.processResults();
       console.log(' 2 this.userResults = ' + this.userResults);
 
-      console.log('HTTP response', data);
-        console.log('HTTP response : Headers', data.headers);
-        console.log('HTTP response : status', data.status);
-        console.log('HTTP response : url', data.body);
-        console.log('HTTP response : body', data.json());
     });
   }
 

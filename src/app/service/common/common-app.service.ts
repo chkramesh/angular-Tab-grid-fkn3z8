@@ -26,6 +26,8 @@ export class CommonAppService {
   public getUser(userId: number): Observable<any> {
     console.log('Service getUser appUrl = ' + this.appUrl);
     return this.http.get<User>(this.appUrl).pipe(
+       tap(data => console.log(data)),
+       // map(data => data),
       catchError((error: any) => {
            console.error(error);
            return of();
@@ -33,7 +35,28 @@ export class CommonAppService {
     );
   }
 
-  results: any[]; //define it here
+  public search(term: string): Observable<User[]> {
+  // let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20&callback=JSONP_CALLBACK`;
+  return this.http.get(this.appUrl)
+      .map(res => {
+        return res.json().results.map(item => {
+          console.log('getUserOnLoad 3 - 2 userId = ' + term);
+          return new User(
+             item.id,
+             item.username,
+             item.firstName,
+             item.lastName,
+             item.gender,
+             item.country,
+             item.state,
+             item.location,
+             item.lang,
+             item.region,
+             item.role
+          );
+        });
+      });
+}
 
   public getUserOnLoad(userId: number): Observable<User[]> {
     console.log('getUserOnLoad 3 - 1 userId = ' + userId);

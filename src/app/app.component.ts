@@ -625,3 +625,20 @@ export class AppComponent  {
 
 // https://forum.ionicframework.com/t/get-subscribe-data-out-of-function/76612/2
 // https://angular.io/guide/http
+
+// # RxJS
+// 1) Pipes in Angular: A pipe takes in data as input and transforms it to the desired output
+// https://angular.io/guide/pipes
+
+// 2) pipe() function in RxJS: You can use pipes to link operators together. Pipes let you combine multiple functions into a single function.
+
+// RxJS Operators are functions that build on the observables foundation to enable sophisticated manipulation of collections.
+
+// For example, RxJS defines operators such as map(), filter(), concat(), and flatMap().
+
+// You can use pipes to link operators together. Pipes let you combine multiple functions into a single function.
+
+
+// https://stackoverflow.com/questions/52934247/angular-observer-catch-error-on-component
+
+// https://www.c-sharpcorner.com/article/handling-errors-in-angular/
