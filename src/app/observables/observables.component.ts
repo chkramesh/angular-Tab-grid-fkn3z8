@@ -37,8 +37,7 @@ export class ObservablesComponent implements OnInit {
     );
     
     this.getUser(1);
-    console.log(' 1 this.userResults = ' + this.userResults);
-    
+
     this.fetchRecord(1);
     // this.doSearchTest(1);
     // this.getUserOnLoad(1);
@@ -94,7 +93,7 @@ export class ObservablesComponent implements OnInit {
     this.commonappservice.getRecordById(userId)
         .subscribe(data => {
             // this.fillForm(data);
-            console.log(' 3 this.userResults data = ' +data);
+            console.log(' 3 this.userResults data = ' +data.id + ' firstName = ' + data.firstName);
           },
           // (err: HttpErrorResponse) => {
           //   console.log(err.error);
