@@ -37,25 +37,25 @@ export class ObservablesComponent implements OnInit {
     );
     
     this.getUser(1);
-    this.doSearchTest(1);
-    //this.getUserOnLoad(1);
+    // this.doSearchTest(1);
+    // this.getUserOnLoad(1);
     // this.userResults = this.getUser(1);
     // this.userResults = this.getUserOnLoad(1);
     console.log(' 1 this.userResults = ' + this.userResults);
   }
 
   // below methos is good, if we use async pipe in html 
-  doSearch(term: string) {
-    this.itunes.search(term);
-  }
+  // doSearch(term: string) {
+  //   this.itunes.search(term);
+  // }
 
-  doSearchTest(term:string) {
-    this.loading = true;
-    this.commonappservice.search(term).subscribe( data => {
-      this.loading = false;
-      // this.userResults = data
-    });
-  }
+  // doSearchTest(term:string) {
+  //   this.loading = true;
+  //   this.commonappservice.search(term).subscribe( data => {
+  //     this.loading = false;
+  //     // this.userResults = data
+  //   });
+  // }
 
   // doSearch(term:string) {
   //   this.loading = true;
@@ -79,20 +79,19 @@ export class ObservablesComponent implements OnInit {
 
   processResults() {
     // Do some stuff with your results, this.Result is set now
-
     console.log(' 3 this.userResults = ' + this.userResults);
 
   }
 
-   getUserOnLoad(userId:number) {
-     console.log('Observable Component getUserOnLoad userId = ' + userId);
-    this.loading = true;
-    // this.commonappservice.getUserOnLoad(userId).subscribe( data => {
-    this.commonappservice.getUserOnLoad(userId).subscribe( data => {
-      console.log('Observable Component data = ' + data);
-      this.loading = false;
-      this.userResults = data;
-    });
-  }
+  //  getUserOnLoad(userId:number) {
+  //    console.log('Observable Component getUserOnLoad userId = ' + userId);
+  //   this.loading = true;
+  //   // this.commonappservice.getUserOnLoad(userId).subscribe( data => {
+  //   this.commonappservice.getUserOnLoad(userId).subscribe( data => {
+  //     console.log('Observable Component data = ' + data);
+  //     this.loading = false;
+  //     this.userResults = data;
+  //   });
+  // }
 
 }
