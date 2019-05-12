@@ -35,6 +35,15 @@ export class CommonAppService {
     );
   }
 
+   public getRecordById(recordId): Observable<any> {
+    return this.http.get<any>(`${this.appUrl}/${recordId}`).pipe(
+      catchError((error: any) => {
+           console.error(error);
+           return of();
+         }),
+    );
+  }
+
 //   public search(term: string): Observable<User[]> {
 //   // let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20&callback=JSONP_CALLBACK`;
 //   return this.http.get(this.appUrl)

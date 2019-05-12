@@ -37,11 +37,14 @@ export class ObservablesComponent implements OnInit {
     );
     
     this.getUser(1);
+    console.log(' 1 this.userResults = ' + this.userResults);
+    
+    this.fetchRecord(1);
     // this.doSearchTest(1);
     // this.getUserOnLoad(1);
     // this.userResults = this.getUser(1);
     // this.userResults = this.getUserOnLoad(1);
-    console.log(' 1 this.userResults = ' + this.userResults);
+    
   }
 
   // below methos is good, if we use async pipe in html 
@@ -71,8 +74,10 @@ export class ObservablesComponent implements OnInit {
     this.commonappservice.getUser(userId).subscribe( data => {
       this.loading = false;
       this.userResults = data;
-      this.processResults();
+      // this.processResults();
       console.log(' 2 this.userResults = ' + this.userResults);
+
+      // const record = this.userResults.find(obj => obj[this.id] === userId);
 
     });
   }
@@ -82,6 +87,23 @@ export class ObservablesComponent implements OnInit {
     console.log(' 3 this.userResults = ' + this.userResults);
 
   }
+
+  public fetchRecord(userId:number) {
+
+    // Display the data retrieved from the data model to the form model.
+    this.commonappservice.getRecordById(userId)
+        .subscribe(data => {
+            // this.fillForm(data);
+            console.log(' 3 this.userResults data = ' +data);
+          },
+          // (err: HttpErrorResponse) => {
+          //   console.log(err.error);
+          //   console.log(err.message);
+          //   this.handleError(err);
+          // }
+          );
+  }
+
 
   //  getUserOnLoad(userId:number) {
   //    console.log('Observable Component getUserOnLoad userId = ' + userId);
