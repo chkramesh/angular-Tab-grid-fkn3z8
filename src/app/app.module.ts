@@ -6,7 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from './material.module';
 // import { HttpModule, Http } from '@angular/http';
 // import { HttpClientModule, HttpClient, HttpHeaders } from "@angular/common/http";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 
 import { NgxWebstorageModule } from 'ngx-webstorage';
 
@@ -26,6 +26,8 @@ import { ObservablesComponent } from './observables/observables.component';
 
 import { SearchService } from './service/search.service';
 import { CommonAppService } from './service/common/common-app.service';
+
+import { ErrorInterceptor } from './helper';
 
 
 import 'hammerjs';
@@ -68,7 +70,8 @@ const routes: Routes = [
     MembersComponent,
     ObservablesComponent
   ],
-  providers: [HttpClientModule, SearchService, CommonAppService],
+  providers: [ HttpClientModule, SearchService, CommonAppService, 
+               { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

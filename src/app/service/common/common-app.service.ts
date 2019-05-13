@@ -20,7 +20,7 @@ export class CommonAppService {
 
  // private results: Observable<SearchItem[]>;
   // private membersUrl = 'api/members';
-  private appUrl = 'api/user';
+  private appUrl = 'api/user1';
 
   constructor(private http: HttpClient) { 
      this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
@@ -50,10 +50,10 @@ export class CommonAppService {
             }
             return user;
       }),
-      catchError((error: any) => {
-           console.error(error);
-           return of();
-      }),
+      // catchError((error: any) => {
+      //      console.error(error);
+      //      return of();
+      // }),
       
     );
   }

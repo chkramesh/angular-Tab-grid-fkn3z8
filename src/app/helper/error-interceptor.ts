@@ -4,7 +4,7 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { ErrorHandler } from './error_handler';
+import { ErrorHandler } from './error-handler';
 
 // import { ErrorHandler } from '../helper';
 // import { SearchItem } from '../models';
