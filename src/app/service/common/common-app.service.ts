@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { HttpClientModule, HttpClient } from "@angular/common/http";
 // import { HttpClientModule } from "@angular/common/http";
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 // import { map) 'rxjs/add/operator/map';
@@ -15,11 +15,17 @@ import { User } from '../../models';
 @Injectable()
 export class CommonAppService {
 
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
+
  // private results: Observable<SearchItem[]>;
   // private membersUrl = 'api/members';
   private appUrl = 'api/user';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+      this.currentUser = this.currentUserSubject.asObservable();
+  }
 
   //  { id: 1, username:'jbrown', firstName: 'Windstorm', lastName: 'Windstorm', gender:'M', country:'USA', state:'NJ', location:'USA', lang: 'Eng', region:'EAST', role: 'admin'},
 
@@ -35,14 +41,31 @@ export class CommonAppService {
     );
   }
 
-   public getRecordById(recordId): Observable<any> {
+  public getRecordById(recordId): Observable<any> {
     return this.http.get<any>(`${this.appUrl}/${recordId}`).pipe(
+      map(user => {
+            if (user) {
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                this.currentUserSubject.next(user);
+            }
+            return user;
+      }),
       catchError((error: any) => {
            console.error(error);
            return of();
-         }),
+      }),
+      
     );
   }
+
+  // public getRecordById(recordId): Observable<any> {
+  //   return this.http.get<any>(`${this.appUrl}/${recordId}`).pipe(
+  //     catchError((error: any) => {
+  //          console.error(error);
+  //          return of();
+  //        }),
+  //   );
+  // }
 
 //   public search(term: string): Observable<User[]> {
 //   // let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20&callback=JSONP_CALLBACK`;
