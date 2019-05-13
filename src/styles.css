@@ -57,3 +57,13 @@ body {
 .example-margin {
   margin: 0 10px;
 }
+
+.error {
+    background-color: red;
+    color: white;    
+}
+
+.error button {
+    background-color:orangered;
+    color: white;
+}

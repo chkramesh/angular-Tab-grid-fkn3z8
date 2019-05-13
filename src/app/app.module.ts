@@ -33,6 +33,8 @@ import { CommonAppService } from './service/common/common-app.service';
 import { GlobalErrorHandler } from './helper/global-error-handler';
 import { ServerErrorInterceptorService } from './helper/server-error-interceptor.service';
 
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 
 import 'hammerjs';
 
@@ -59,6 +61,7 @@ const routes: Routes = [
     FormsModule, ReactiveFormsModule,
     NgxWebstorageModule.forRoot(),
     MaterialModule, FlexLayoutModule,
+    MatSnackBarModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService
     ),
