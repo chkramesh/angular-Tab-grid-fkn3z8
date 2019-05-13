@@ -28,6 +28,7 @@ import { SearchService } from './service/search.service';
 import { CommonAppService } from './service/common/common-app.service';
 
 import { ErrorInterceptor } from './helper';
+import { ErrorHandler } from './helper';
 
 
 import 'hammerjs';
@@ -70,7 +71,7 @@ const routes: Routes = [
     MembersComponent,
     ObservablesComponent
   ],
-  providers: [ HttpClientModule, SearchService, CommonAppService, 
+  providers: [ HttpClientModule, SearchService, CommonAppService, ErrorHandler,
                { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })

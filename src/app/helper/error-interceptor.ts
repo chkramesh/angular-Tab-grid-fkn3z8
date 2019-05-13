@@ -20,8 +20,13 @@ export class ErrorInterceptor implements HttpInterceptor {
                 // auto logout if 401 response returned from api
                 // this.authenticationService.logout();
                 // location.reload(true);
-            }            
-            const error = err.error.message || err.statusText;
+            }    
+
+            console.log('ErrorInterceptor err.status = ' + err.status);        
+            console.log('ErrorInterceptor err.error = ' + err.error);  
+            // const error = err.error.message || err.statusText;
+            const error = err.error || err.statusText;
+            // const error = err.error.message || err.statusText;
             console.log('ErrorInterceptor error = ' + error);
             // return throwError(error);
 
