@@ -31,6 +31,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             // return throwError(error);
 
             return next.handle(request).do((event: HttpEvent<any>) => {}, (err: any) => {
+              console.log('ErrorInterceptor error ====== ' + error);
               if (err instanceof HttpErrorResponse) {
                 this.errorHandler.handleError(err);
               }
