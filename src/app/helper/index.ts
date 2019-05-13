@@ -1,5 +1,5 @@
-export * from './error-interceptor';
-export * from './error-handler';
+export * from './global-error-handler';
+// export * from './error-handler';
 
 // export class Index {
 // }

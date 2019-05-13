@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,8 +27,11 @@ import { ObservablesComponent } from './observables/observables.component';
 import { SearchService } from './service/search.service';
 import { CommonAppService } from './service/common/common-app.service';
 
-import { ErrorInterceptor } from './helper';
-import { ErrorHandler } from './helper';
+// import { ErrorInterceptor } from './helper';
+// import { ErrorHandler } from './helper';
+// import { GlobalErrorHandlerService } from './helper/global-error-handler.Service';
+import { GlobalErrorHandler } from './helper/global-error-handler';
+import { ServerErrorInterceptorService } from './helper/server-error-interceptor.service';
 
 
 import 'hammerjs';
@@ -71,8 +74,14 @@ const routes: Routes = [
     MembersComponent,
     ObservablesComponent
   ],
-  providers: [ HttpClientModule, SearchService, CommonAppService, ErrorHandler,
-               { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
+  providers: [ HttpClientModule, SearchService, CommonAppService, ServerErrorInterceptorService,
+               // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+               // { provide: ErrorHandler, useClass: GlobalErrorHandler },
+                { provide: ErrorHandler, useClass: GlobalErrorHandler },                
+                { provide: HTTP_INTERCEPTORS, useClass: ServerErrorInterceptorService, multi: true }
+               
+               
+               ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
