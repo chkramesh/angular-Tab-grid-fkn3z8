@@ -3,16 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MaterialModule } from './material.module';
-// import { HttpModule, Http } from '@angular/http';
-// import { HttpClientModule, HttpClient, HttpHeaders } from "@angular/common/http";
 import { HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
-
 import { NgxWebstorageModule } from 'ngx-webstorage';
-
 import { Routes, RouterModule } from '@angular/router';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+import { MaterialModule } from './material.module';
 import { InMemoryDataService }  from '../server/in-memory-data.service';
 
 import { AppComponent } from './app.component';
@@ -32,10 +29,6 @@ import { CommonAppService } from './service/common/common-app.service';
 // import { GlobalErrorHandlerService } from './helper/global-error-handler.Service';
 import { GlobalErrorHandler } from './helper/global-error-handler';
 import { ServerErrorInterceptorService } from './helper/server-error-interceptor.service';
-
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-
-
 import 'hammerjs';
 
 // import { MatTabsModule } from '@angular/material';
