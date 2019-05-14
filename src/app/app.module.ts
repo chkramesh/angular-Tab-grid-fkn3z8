@@ -31,7 +31,6 @@ import { GlobalErrorHandler } from './helper/global-error-handler';
 import { ServerErrorInterceptorService } from './helper/server-error-interceptor.service';
 import 'hammerjs';
 
-// import { MatTabsModule } from '@angular/material';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -48,8 +47,6 @@ const routes: Routes = [
     BrowserAnimationsModule,
     NoopAnimationsModule,
     FormsModule,
-    // MatTabsModule,
-    // HttpModule, 
     HttpClientModule,
     FormsModule, ReactiveFormsModule,
     NgxWebstorageModule.forRoot(),
