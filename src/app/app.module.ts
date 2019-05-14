@@ -63,7 +63,7 @@ const routes: Routes = [
     MaterialModule, FlexLayoutModule,
     MatSnackBarModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService
+      InMemoryDataService, {passThruUnknownUrl: true}
     ),
     RouterModule.forRoot(routes)
   ],

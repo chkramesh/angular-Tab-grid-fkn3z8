@@ -20,7 +20,7 @@ export class CommonAppService {
 
  // private results: Observable<SearchItem[]>;
   // private membersUrl = 'api/members';
-  private appUrl = 'api/user1';
+  private appUrl = 'api/user';
 
   constructor(private http: HttpClient) { 
      this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
