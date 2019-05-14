@@ -642,3 +642,7 @@ export class AppComponent  {
 // https://stackoverflow.com/questions/52934247/angular-observer-catch-error-on-component
 
 // https://www.c-sharpcorner.com/article/handling-errors-in-angular/
+
+// https://stackblitz.com/edit/global-error-catching-angular?file=app%2Fapp.module.ts
+
+// https://stackblitz.com/github/melcor76/global-error-handling?file=src%2Fapp%2Fapp.module.ts
