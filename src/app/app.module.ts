@@ -36,7 +36,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'form', component: SearchComponent },
+  { path: 'form', component: FormComponent },
   { path: 'others', component: OthersComponent },
   { path: 'address', component: AddressComponent },
   { path: 'members', component: MembersComponent },
