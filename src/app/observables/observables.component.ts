@@ -37,8 +37,7 @@ export class ObservablesComponent implements OnInit {
     );
     
     this.getUser(1);
-
-    this.fetchRecord(1);
+    this.fetchUserRecord(1);
     // this.doSearchTest(1);
     // this.getUserOnLoad(1);
     // this.userResults = this.getUser(1);
@@ -75,20 +74,16 @@ export class ObservablesComponent implements OnInit {
       this.userResults = data;
       // this.processResults();
       console.log(' 2 this.userResults = ' + this.userResults);
-
       // const record = this.userResults.find(obj => obj[this.id] === userId);
-
     });
   }
 
   processResults() {
     // Do some stuff with your results, this.Result is set now
     console.log(' 3 this.userResults = ' + this.userResults);
-
   }
 
-  public fetchRecord(userId:number) {
-
+  public fetchUserRecord(userId:number) {
     // Display the data retrieved from the data model to the form model.
     this.commonappservice.getRecordById(userId)
         .subscribe(data => {

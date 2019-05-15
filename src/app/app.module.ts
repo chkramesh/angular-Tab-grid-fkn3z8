@@ -16,6 +16,7 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
+import { FormComponent } from './form/form.component';
 import { OthersComponent } from './others/others.component';
 import { AddressComponent } from './address/address.component';
 import { MembersComponent } from './members/members.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'form', component: SearchComponent },
   { path: 'others', component: OthersComponent },
   { path: 'address', component: AddressComponent },
   { path: 'members', component: MembersComponent },
@@ -62,6 +64,7 @@ const routes: Routes = [
     HelloComponent, 
     HomeComponent, 
     SearchComponent, 
+    FormComponent,
     OthersComponent,
     AddressComponent,
     MembersComponent,
