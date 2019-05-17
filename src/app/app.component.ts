@@ -711,3 +711,10 @@ export class AppComponent  implements OnInit {
 // https://stackblitz.com/edit/global-error-catching-angular?file=app%2Fapp.module.ts
 
 // https://stackblitz.com/github/melcor76/global-error-handling?file=src%2Fapp%2Fapp.module.ts
+
+// good- use for experiment
+// github-uh3oom
+// github-unklbx
+
+// Working Code
+// angular-fkn3z8
