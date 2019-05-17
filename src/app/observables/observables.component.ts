@@ -37,7 +37,7 @@ export class ObservablesComponent implements OnInit {
     );
     
     this.getUser(1);
-    this.fetchUserRecord(1);
+    // this.fetchUserRecord(1);
     // this.doSearchTest(1);
     // this.getUserOnLoad(1);
     // this.userResults = this.getUser(1);

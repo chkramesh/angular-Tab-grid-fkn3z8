@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { ReactiveFormsModule, FormControl, FormsModule } from "@angular/forms";
 
@@ -17,7 +17,10 @@ export class AppComponent  implements OnInit {
   name = 'Angular 7 reactive form';
   userName = 'Test User';
 
-   private loading: boolean = false;
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
+  
+  private loading: boolean = false;
   // private results: Observable<SearchItem[]>;
   private searchField: FormControl;
 
@@ -25,11 +28,25 @@ export class AppComponent  implements OnInit {
   public userResults: Observable<User[]>;
   // userResults: Observable<User[]>;
 
-  constructor(private commonappservice: CommonAppService) { }
+  constructor(private commonappservice: CommonAppService) {
+
+    // this.fetchUserRecord(1);
+
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+    console.log('1 this.currentUser = ' + this.currentUser);
+    // console.log('1 - 1 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName);
+
+
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log('1 - 3 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName);
+
+
+   }
 
   ngOnInit() {
     this.getUser(1);
-    this.fetchUserRecord(1);
+    // this.fetchUserRecord(1);
 
   }
 
@@ -56,7 +73,9 @@ export class AppComponent  implements OnInit {
     this.commonappservice.getRecordById(userId)
         .subscribe(data => {
             // this.fillForm(data);
-            console.log(' 3 this.userResults data = ' +data.id + ' firstName = ' + data.firstName);
+            console.log(' 4 this.userResults data = ' +data.id + ' firstName = ' + data.firstName);
+
+            localStorage.setItem('currentUser', JSON.stringify(data));
           },
           // (err: HttpErrorResponse) => {
           //   console.log(err.error);
