@@ -46,7 +46,6 @@ export class AppComponent  implements OnInit {
 
   }
 
-
   getUser(userId:number) {
     console.log('Observable Component getUserOnLoad id = ' + userId);
     this.loading = true;
@@ -70,7 +69,6 @@ export class AppComponent  implements OnInit {
         .subscribe(data => {
             // this.fillForm(data);
             // console.log(' 4 this.userResults data = ' +data.id + ' firstName = ' + data.firstName + ' country = ' +this.currentUser.country);
-
             localStorage.setItem('currentUser', JSON.stringify(data));
 
             this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
