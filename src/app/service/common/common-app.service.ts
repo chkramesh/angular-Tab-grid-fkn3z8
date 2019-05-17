@@ -23,14 +23,14 @@ export class CommonAppService {
   private appUrl = 'api/user';
 
   constructor(private http: HttpClient) { 
-     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-      this.currentUser = this.currentUserSubject.asObservable();
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
   }
 
   //  { id: 1, username:'jbrown', firstName: 'Windstorm', lastName: 'Windstorm', gender:'M', country:'USA', state:'NJ', location:'USA', lang: 'Eng', region:'EAST', role: 'admin'},
 
   public getUser(userId: number): Observable<any> {
-    console.log('Service getUser appUrl = ' + this.appUrl);
+    // console.log('Service getUser appUrl = ' + this.appUrl);
     return this.http.get<User>(this.appUrl).pipe(
       tap(data => console.log(data)),
       // map(data => data),
