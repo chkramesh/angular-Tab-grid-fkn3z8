@@ -72,7 +72,7 @@ export class AppComponent  implements OnInit {
             localStorage.setItem('currentUser', JSON.stringify(data));
 
             this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-            console.log('4 - 1 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName + ' country = ' +this.currentUser.country);
+            console.log('4 - 1 this.currentUser = ' + this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' + this.currentUser.lastName + ' country = ' + this.currentUser.country);
           },
           // (err: HttpErrorResponse) => {
           //   console.log(err.error);

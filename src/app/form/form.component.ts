@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { ReactiveFormsModule, FormControl, FormsModule } from "@angular/forms";
 
@@ -14,6 +14,8 @@ import { User } from '../models';
 })
 export class FormComponent implements OnInit {
 
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
   // userName = 'Test Form User';
 
   // private loading: boolean = false;
@@ -30,6 +32,9 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     // this.getUser(1);
     // this.fetchUserRecord(1);
+
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            console.log('Form 5 - 1 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName + ' country = ' +this.currentUser.country);
 
   }
 
