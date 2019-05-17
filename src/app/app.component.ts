@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  {
   name = 'Angular 7 reactive form';
+  userName = 'Test User';
 }
 
 
