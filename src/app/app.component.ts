@@ -141,7 +141,24 @@ export class AppComponent  implements OnInit {
 // https://codecraft.tv/courses/angular/http/http-with-observables/
 // https://appdividend.com/2018/12/08/angular-7-observables-tutorial-with-example/
 
+// import { PortalConstants } from '../../../utils/portal.constants';
+
+// settings_security(): void {
+//         let SETTINGS_PAGE = PortalConstants.SETTINGS_NAVIGATION_OBJECT;
+//         let SECURITY_PAGE = PortalConstants.SETTINGS_SECURITY_NAVIGATION_OBJECT;
+//         let navigation = new NxpNavigation();
+//         navigation.parentPage = SETTINGS_PAGE;
+//         navigation.childPage = SECURITY_PAGE;
+//         this.navigationService.handleNavigation(navigation);
+//     }
+
+// src/utils/portal.constants.ts
 //export class PortalConstants {
+
+  // public static CHILD_HOME_NAVIGATION_OBJECT: any = {'id':  'household',  'name':  'Household', 'group': {'id':  'lists',  'name':  'Lists' , children: [
+  //       { 'id': 'household', 'name': 'Household'},
+  //       { 'id': 'accounts', 'name': 'Accounts'}]}};
+
 //  public static SETTINGS_NAVIGATION_OBJECT = { 'id': 'settings', 'name': 'Settings' };
 // public static LANGUAGES: any = {
 //         'ab': 'Abkhazian',
@@ -700,6 +717,13 @@ export class AppComponent  implements OnInit {
 //         'zu': 'Zulu',
 //         'zun': 'Zuni'
 //     };
+
+      // public static TIME_ZONES: any = {
+      //   'America/Los_Angeles': 'Pacific Standard Time',
+      //   'America/New_York': 'Eatern Standard Time',
+      //   'Asia/Calcutta': 'Indian Standard Time',
+      //   'Asia/Kolkata': 'Indian Standard Time'
+      //  };
 //}
 // TemplateStringsArray
 // fromPromise
