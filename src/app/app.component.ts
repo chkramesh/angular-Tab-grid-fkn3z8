@@ -30,17 +30,13 @@ export class AppComponent  implements OnInit {
 
   constructor(private commonappservice: CommonAppService) {
 
-    // this.fetchUserRecord(1);
+    this.fetchUserRecord(1);
 
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-    console.log('1 this.currentUser = ' + this.currentUser);
-    // console.log('1 - 1 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName);
 
-
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log('1 - 3 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName);
-
+    // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    // console.log('1 - 3 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName);
 
    }
 
@@ -73,9 +69,12 @@ export class AppComponent  implements OnInit {
     this.commonappservice.getRecordById(userId)
         .subscribe(data => {
             // this.fillForm(data);
-            console.log(' 4 this.userResults data = ' +data.id + ' firstName = ' + data.firstName);
+            // console.log(' 4 this.userResults data = ' +data.id + ' firstName = ' + data.firstName + ' country = ' +this.currentUser.country);
 
             localStorage.setItem('currentUser', JSON.stringify(data));
+
+            this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            console.log('4 - 1 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName + ' country = ' +this.currentUser.country);
           },
           // (err: HttpErrorResponse) => {
           //   console.log(err.error);

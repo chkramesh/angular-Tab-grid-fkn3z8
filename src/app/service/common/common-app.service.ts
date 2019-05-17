@@ -23,8 +23,8 @@ export class CommonAppService {
   private appUrl = 'api/user';
 
   constructor(private http: HttpClient) { 
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-    this.currentUser = this.currentUserSubject.asObservable();
+    // this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    // this.currentUser = this.currentUserSubject.asObservable();
   }
 
   //  { id: 1, username:'jbrown', firstName: 'Windstorm', lastName: 'Windstorm', gender:'M', country:'USA', state:'NJ', location:'USA', lang: 'Eng', region:'EAST', role: 'admin'},
@@ -42,12 +42,12 @@ export class CommonAppService {
   }
 
   public getRecordById(recordId): Observable<any> {
-    console.log('Service getRecordById appUrl = ' + this.appUrl);
+    // console.log('Service getRecordById appUrl = ' + this.appUrl);
     return this.http.get<any>(`${this.appUrl}/${recordId}`).pipe(
       map(user => {
             if (user) {
-                localStorage.setItem('currentUser', JSON.stringify(user));
-                this.currentUserSubject.next(user);
+                // localStorage.setItem('currentUser', JSON.stringify(user));
+                // this.currentUserSubject.next(user);
             }
             return user;
       }),
