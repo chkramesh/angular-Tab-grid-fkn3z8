@@ -14,6 +14,8 @@ import { User } from '../models';
 })
 export class FormComponent implements OnInit {
 
+  // userName = 'Test Form User';
+
   private loading: boolean = false;
   // private results: Observable<SearchItem[]>;
   private searchField: FormControl;
