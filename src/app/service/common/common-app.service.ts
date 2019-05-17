@@ -42,6 +42,7 @@ export class CommonAppService {
   }
 
   public getRecordById(recordId): Observable<any> {
+    console.log('Service getRecordById appUrl = ' + this.appUrl);
     return this.http.get<any>(`${this.appUrl}/${recordId}`).pipe(
       map(user => {
             if (user) {

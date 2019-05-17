@@ -39,13 +39,13 @@ export class AppComponent  implements OnInit {
 
 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log('1 - 3 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName);
+    console.log('1 - 3 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName);
 
 
    }
 
   ngOnInit() {
-    this.getUser(1);
+    // this.getUser(1);
     // this.fetchUserRecord(1);
 
   }
