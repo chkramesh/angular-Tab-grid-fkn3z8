@@ -945,6 +945,7 @@ export class AppComponent  implements OnInit {
 //     endDate: [new Date(data.endDate)],
 //     currentDate: ['']
 //    }, { validator: this.checkDates });
+
 //    this.editManagerForm.patchValue({
 //     // assignMgrStartDateList: 'asOfDate',
 //     managerName: data.managerName,
