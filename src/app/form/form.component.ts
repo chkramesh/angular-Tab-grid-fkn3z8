@@ -16,6 +16,13 @@ import { User } from '../models';
 })
 export class FormComponent implements OnInit {
 
+  endDateDivShow: boolean;
+ editManagerForm;
+ scrDefConst: String;
+ command: String;
+ formatType: String;
+ managerName: any;
+
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
  
