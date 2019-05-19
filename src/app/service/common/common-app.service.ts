@@ -8,6 +8,7 @@ import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } f
 // import { map) 'rxjs/add/operator/map';
 
 import { User } from '../../models';
+import { ALL_SKILLS } from '../../utils/common-data';
 // import { Student } from '../../model';
 // import { User } from '.../models';
 // import { SearchItem } from '../models';
@@ -58,6 +59,10 @@ export class CommonAppService {
       
     );
   }
+
+  getSkills() {
+	    return Observable.of(ALL_SKILLS);		
+	}
 
   // public getRecordById(recordId): Observable<any> {
   //   return this.http.get<any>(`${this.appUrl}/${recordId}`).pipe(

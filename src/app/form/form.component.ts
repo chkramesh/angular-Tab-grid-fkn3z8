@@ -23,6 +23,9 @@ export class FormComponent implements OnInit {
 
  private currentUserSubject: BehaviorSubject<User>;
  public currentUser: Observable<User>;
+
+ countries = [{'id':1, 'name':'India'}, {'id':2, 'name': 'USA'}, {'id':3, 'name': 'UK'}];
+ allSkills: Observable<any[]>;
  
  langs: string[] = [
     'English',
@@ -32,6 +35,7 @@ export class FormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, 
     // private http: Http,
+    private commonAppService: CommonAppService,
     private storage: LocalStorageService) { }
 
   exampleForm: FormGroup;
@@ -93,6 +97,15 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     // this.getUser(1);
     // this.fetchUserRecord(1);
+
+    this.allSkills = this.commonAppService.getSkills();
+    console.log('this.allSkills 1 = ' + this.allSkills);
+
+    var allSkillsData = JSON.stringify(this.allSkills);
+    console.log('this.allSkills 2 = ' + allSkillsData);
+
+    // console.log('this.allSkills = ' + this.allSkills[1].name);
+    console.log('this.allSkills 3 = ' + this.allSkills[0]);
 
     // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     //         console.log('Form 5 - 1 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName + ' country = ' +this.currentUser.country);
