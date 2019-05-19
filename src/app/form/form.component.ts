@@ -97,7 +97,7 @@ export class FormComponent implements OnInit {
     // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     //         console.log('Form 5 - 1 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName + ' country = ' +this.currentUser.country);
 
-     // this.buildForm();       
+     this.buildForm();       
   }
 
   // createFormControls() {
