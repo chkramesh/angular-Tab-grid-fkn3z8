@@ -61,37 +61,7 @@ export class FormComponent implements OnInit {
   //  endDateDivShow: boolean;
   //  managerName: any;
 
-  public buildForm() {
-      // create form with validators
-      this.exampleForm = this.formBuilder.group({ 
-      firstName : ['', [Validators.required,Validators.minLength(3), Validators.maxLength(10)]],
-      lastName : '', 
-      gender: '',
-      currentDate : '',
-      country : '',
-      street : '',
-      city : '',
-      zip : '',
-      state : '',
-      location : '',
-      language : '',
-      region : '',
-      role: '',
-      skill: [''],
-      email: [''],
-      password: [''],      
-      mgrOption : ''
-     
-      // country: [this.countries[2].id],
-      // checked: false,
-      // indeterminate: false,
-      // locationflag:true,
-      // homelocation:true,
-      // language:'',
-      // skill: [this.allSkills[2]]
-    });
-  }
-
+  
   
 
   ngOnInit() {
@@ -112,6 +82,39 @@ export class FormComponent implements OnInit {
 
      this.buildForm();       
   }
+
+  public buildForm() {
+      // create form with validators
+      this.exampleForm = this.formBuilder.group({ 
+      firstName : ['', [Validators.required,Validators.minLength(3), Validators.maxLength(10)]],
+      lastName : '', 
+      gender: '',
+      currentDate : '',
+      country : '',
+      street : '',
+      city : '',
+      zip : '',
+      state : '',
+      location : '',
+      language : '',
+      region : '',
+      role: '',
+      // skill: [''],
+      skill: [this.allSkills[2]],
+      email: [''],
+      password: [''],      
+      mgrOption : ''
+     
+      // country: [this.countries[2].id],
+      // checked: false,
+      // indeterminate: false,
+      // locationflag:true,
+      // homelocation:true,
+      // language:'',
+      // skill: [this.allSkills[2]]
+    });
+  }
+
 
   // createFormControls() {
   //   this.firstName = new FormControl('', Validators.required);
