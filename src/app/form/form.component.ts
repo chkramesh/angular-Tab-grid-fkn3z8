@@ -5,8 +5,8 @@ import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } f
 
 import { FormGroup,  Validators, FormBuilder} from '@angular/forms';
 import { ReactiveFormsModule, FormControl, FormsModule } from "@angular/forms";
+import { Http, RequestOptionsArgs, Headers, Response } from "@angular/http";
 
-import {Http, RequestOptionsArgs, Headers, Response } from "@angular/http";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map'
 import { LocalStorageService } from 'ngx-webstorage';
@@ -30,7 +30,8 @@ export class FormComponent implements OnInit {
     'German',
   ];
 
-  constructor(private formBuilder: FormBuilder, private http: Http,
+  constructor(private formBuilder: FormBuilder, 
+    // private http: Http,
     private storage: LocalStorageService) { }
 
   exampleForm: FormGroup;
@@ -93,10 +94,10 @@ export class FormComponent implements OnInit {
     // this.getUser(1);
     // this.fetchUserRecord(1);
 
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-            console.log('Form 5 - 1 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName + ' country = ' +this.currentUser.country);
+    // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    //         console.log('Form 5 - 1 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName + ' country = ' +this.currentUser.country);
 
-     this.buildForm();       
+     // this.buildForm();       
   }
 
   // createFormControls() {
