@@ -1,4 +1,4 @@
-gfgf
+Test
 <!-- Page content -->
 <div class="basic-container">
   <mat-card>
@@ -6,6 +6,37 @@ gfgf
     <form [formGroup]="exampleForm" novalidate (ngSubmit)="save(exampleForm, exampleForm.value, exampleForm.valid, $event)" >
     <mat-card-title>Reactive form</mat-card-title>
     <mat-card-content>
+       <!-- fxLayoutAlign="center"  -->
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
+          
+          <!-- Street input field -->
+          <mat-form-field class="example-full-width" fxFlex="10%">
+            <input matInput placeholder="First Name"  formControlName="firstName">
+            <mat-error *ngIf="exampleForm.controls.firstName.invalid">
+              <span [hidden]="!exampleForm.controls['firstName'].errors.required">
+                This field is required.
+              </span> 
+              <span [hidden]="!exampleForm.controls['firstName'].errors.maxlength">
+                Maximmum alowed charactes are 10
+              </span>  
+              <span [hidden]="!exampleForm.controls['firstName'].errors.minlength">
+                Minium alowed charactes are 3
+              </span>          
+          </mat-error>
+          </mat-form-field>
+
+          <!-- City input field -->
+          <mat-form-field class="example-full-width" fxFlex="10%"> 
+            <input matInput placeholder="Last Name" formControlName="lastName">
+            <mat-hint align="end">Lasr Name/</mat-hint>
+          </mat-form-field>
+
+          <mat-radio-group name="gender" fxFlex="40" class="radioAlignment">
+            <label>Gender:</label>
+            <mat-radio-button class="example-margin" value="m">Male</mat-radio-button>
+            <mat-radio-button value="f">Female</mat-radio-button>
+          </mat-radio-group> 
+        </div>
 
 
      
