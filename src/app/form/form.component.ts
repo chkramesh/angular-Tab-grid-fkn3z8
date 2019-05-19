@@ -98,14 +98,14 @@ export class FormComponent implements OnInit {
     // this.getUser(1);
     // this.fetchUserRecord(1);
 
-    this.allSkills = this.commonAppService.getSkills();
-    console.log('this.allSkills 1 = ' + this.allSkills);
+    // this.allSkills = this.commonAppService.getSkills();
+    // console.log('this.allSkills 1 = ' + this.allSkills);
 
-    var allSkillsData = JSON.stringify(this.allSkills);
-    console.log('this.allSkills 2 = ' + allSkillsData);
+    // var allSkillsData = JSON.stringify(this.allSkills);
+    // console.log('this.allSkills 2 = ' + allSkillsData);
 
-    // console.log('this.allSkills = ' + this.allSkills[1].name);
-    console.log('this.allSkills 3 = ' + this.allSkills[0]);
+    // // console.log('this.allSkills = ' + this.allSkills[1].name);
+    // console.log('this.allSkills 3 = ' + this.allSkills[0]);
 
     // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     //         console.log('Form 5 - 1 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName + ' country = ' +this.currentUser.country);
