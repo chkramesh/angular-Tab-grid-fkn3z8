@@ -55,6 +55,69 @@ Test
        
         </div>
 
+         <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
+          <mat-form-field fxFlex="10">
+            <input matInput  type="text"  placeholder="Location" formControlName="location">
+          </mat-form-field>
+
+        <mat-form-field fxFlex="10">
+          <input matInput  type="text"  placeholder="Language" formControlName="language">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="10">
+          <input matInput  type="text"  placeholder="Region" formControlName="region">
+        </mat-form-field>
+
+         <mat-form-field fxFlex="10">
+          <input matInput  type="text"  placeholder="Role" formControlName="role">
+        </mat-form-field>
+
+         <!-- <mat-form-field fxFlex="10">
+          <input matInput  type="text"  placeholder="Test5" formControlName="test5">
+        </mat-form-field>
+
+         <mat-form-field fxFlex="10">
+          <input matInput  type="text"  placeholder="Test6" formControlName="test6">
+        </mat-form-field> -->
+      </div>
+
+       <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
+       
+        <!--
+        <mat-form-field >
+          <input matInput placeholder="Country" formControlName="country">   
+        </mat-form-field>
+        -->
+
+        <!--
+        <section class="example-section">
+          <label class="example-margin">Country:</label>
+          <select id="contry" formControlName="country">
+            <option value="">Please select a country</option>
+            <option *ngFor="let contry of countries" [value]="contry.id">{{contry.name}}</option>
+          </select>   
+        </section>
+        -->
+
+        <mat-form-field>
+          <mat-label>Select a country</mat-label>
+          <mat-select value="" (selectionChange)="countryChange($event)" formControlName="country">
+            <mat-option value="">Please select a country</mat-option>
+            <mat-option *ngFor="let contry of countries" [value]="contry.id">{{contry.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+         <mat-form-field>
+          <mat-label>Select Font size</mat-label>
+          <mat-select #fontSize value="15px" (selectionChange)="resizeTextArea()">
+            <mat-option value="10px">10px</mat-option>
+            <mat-option value="15px">15px</mat-option>
+            <mat-option value="20px">20px</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+      </div>
+
 
      
       
