@@ -110,25 +110,25 @@
           </mat-select>
         </mat-form-field>
 
-         <mat-form-field>
+         <!-- <mat-form-field>
           <mat-label>Select Font size</mat-label>
           <mat-select #fontSize value="15px" (selectionChange)="resizeTextArea()">
             <mat-option value="10px">10px</mat-option>
             <mat-option value="15px">15px</mat-option>
             <mat-option value="20px">20px</mat-option>
           </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
 
         <mat-form-field>
           <mat-label>Select Font size</mat-label>
-          <mat-select (selectionChange)="resizeTextArea($event)" formControlName="fonts">
+          <mat-select (selectionChange)="resizeTextArea($event)" formControlName="fontSize">
             <mat-option value="">Select a Font</mat-option>
             <mat-option *ngFor="let fonts of allFonts | async" [value]="fonts.id">
             {{ fonts.displayName }} </mat-option>
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field fxFlex="7">
+        <mat-form-field fxFlex="10">
           <mat-label>Select a Skill</mat-label>
           <mat-select (selectionChange)="languageChange($event)" formControlName="skill">
             <mat-option value="">Select a Skill</mat-option>

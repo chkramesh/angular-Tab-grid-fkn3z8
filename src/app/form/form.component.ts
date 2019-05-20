@@ -50,7 +50,7 @@ export class FormComponent implements OnInit {
   language: String;
   region: String;
   role: String;
-  fonts: String;
+  fontSize: String;
   skill: String;
   email: String;
   password: String;
@@ -67,7 +67,7 @@ export class FormComponent implements OnInit {
     console.log('this.allSkills 1 = ' + this.allSkills);
 
     this.allFonts = this.commonAppService.getFonts();
-    // console.log('this.allSkills 1 = ' + this.allFonts);
+    console.log('this.allFonts 1 = ' + this.allFonts);
 
     
 
@@ -118,7 +118,7 @@ export class FormComponent implements OnInit {
       language : '',
       region : '',
       role: '',
-      fonts: [''],
+      fontSize: [''],
       skill: [''],
       //skill: [this.allSkills[2]],
       email: [''],
