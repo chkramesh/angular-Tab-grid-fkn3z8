@@ -61,6 +61,15 @@ export class FormComponent implements OnInit {
     private commonAppService: CommonAppService,
     private storage: LocalStorageService) { 
 
+    this.allSkills = this.commonAppService.getSkills();
+    console.log('this.allSkills 1 = ' + this.allSkills);
+
+    // var allSkillsData = JSON.stringify(this.allSkills);
+    // console.log('this.allSkills 2 = ' + allSkillsData);
+    // console.log('this.allSkills = ' + this.allSkillsData[1].name);
+
+    this.buildForm();
+
 
   }
 
@@ -81,7 +90,7 @@ export class FormComponent implements OnInit {
     // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     //         console.log('Form 5 - 1 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName + ' country = ' +this.currentUser.country);
 
-    this.buildForm();
+    // this.buildForm();
 
            
   }
@@ -103,7 +112,7 @@ export class FormComponent implements OnInit {
       region : '',
       role: '',
       skill: [''],
-      // skill: [this.allSkills[2]],
+      //skill: [this.allSkills[2]],
       email: [''],
       password: [''],      
       mgrOption : ''

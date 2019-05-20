@@ -61,7 +61,8 @@ export class CommonAppService {
   }
 
   getSkills() {
-	    return Observable.of(ALL_SKILLS);		
+	    // return Observable.of(ALL_SKILLS);		
+      return of(ALL_SKILLS);	
 	}
 
   // public getRecordById(recordId): Observable<any> {
