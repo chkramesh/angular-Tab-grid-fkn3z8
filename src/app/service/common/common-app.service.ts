@@ -4,14 +4,13 @@ import { HttpClientModule, HttpClient } from "@angular/common/http";
 // import { HttpClientModule } from "@angular/common/http";
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
-
 // import { map) 'rxjs/add/operator/map';
 
 import { AppConstants  } from '../../utils/app-constants';
 import { User } from '../../models';
 import { ALL_SKILLS } from '../../utils/common-data';
-import { ALL_FONT_SIZE } from '../../utils/common-data';
 
+// import { ALL_FONT_SIZE } from '../../utils/common-data';
 // import { ALL_SKILLS } from '../../utils/app-constants';
 // import { Student } from '../../model';
 // import { User } from '.../models';

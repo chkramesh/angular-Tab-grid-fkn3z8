@@ -13,6 +13,9 @@ import { LocalStorageService } from 'ngx-webstorage';
 
 import { CommonAppService } from '../service/common/common-app.service';
 import { User } from '../models';
+import { Hero } from '../models';
+
+import { AppConstants  } from '../utils/app-constants';
 
 @Component({
   selector: 'app-form',
@@ -27,6 +30,8 @@ export class FormComponent implements OnInit {
  countries = [{'id':1, 'name':'India'}, {'id':2, 'name': 'USA'}, {'id':3, 'name': 'UK'}];
  allSkills: Observable<any[]>;
  allFonts: Observable<any[]>;
+ allHeros: Observable<any[]>;
+ // heroes: Hero[];
  
  langs: string[] = [
     'English',
@@ -55,6 +60,7 @@ export class FormComponent implements OnInit {
   email: String;
   password: String;
   mgrOption: boolean;
+  heros: String;
   //  endDateDivShow: boolean;
   //  managerName: any;
 
@@ -68,7 +74,9 @@ export class FormComponent implements OnInit {
 
     this.allFonts = this.commonAppService.getFonts();
     console.log('this.allFonts 1 = ' + this.allFonts);
-
+    
+    this.allHeros = AppConstants.HEROES;
+    console.log('this.allHeros 1 = ' + this.allHeros);
     
 
     // var allSkillsData = JSON.stringify(this.allSkills);
@@ -123,7 +131,8 @@ export class FormComponent implements OnInit {
       //skill: [this.allSkills[2]],
       email: [''],
       password: [''],      
-      mgrOption : ''
+      mgrOption : '',
+      heros : ''
      
       // country: [this.countries[2].id],
       // checked: false,
