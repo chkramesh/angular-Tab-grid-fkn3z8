@@ -7,6 +7,7 @@ import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } f
 
 // import { map) 'rxjs/add/operator/map';
 
+import { AppConstants  } from '../../utils/app-constants';
 import { User } from '../../models';
 import { ALL_SKILLS } from '../../utils/common-data';
 import { ALL_FONT_SIZE } from '../../utils/common-data';
@@ -65,12 +66,13 @@ export class CommonAppService {
 
   getSkills() {
 	    // return Observable.of(ALL_SKILLS);		
-      return of(ALL_SKILLS);	
+      return of(ALL_SKILLS);	      
 	}
 
   getFonts() {
-	    // return Observable.of(ALL_SKILLS);		
-      return of(ALL_FONT_SIZE);	
+	    // return Observable.of(ALL_FONT_SIZE);		
+      // return of(ALL_FONT_SIZE);	
+      return AppConstants.ALL_FONT_SIZE;
 	}
 
   // public getRecordById(recordId): Observable<any> {

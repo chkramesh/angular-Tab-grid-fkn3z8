@@ -119,11 +119,11 @@
           </mat-select>
         </mat-form-field> -->
 
-        <mat-form-field>
+        <mat-form-field fxFlex="8">
           <mat-label>Select Font size</mat-label>
           <mat-select (selectionChange)="resizeTextArea($event)" formControlName="fontSize">
             <mat-option value="">Select a Font</mat-option>
-            <mat-option *ngFor="let fonts of allFonts | async" [value]="fonts.id">
+            <mat-option *ngFor="let fonts of allFonts" [value]="fonts.id">
             {{ fonts.displayName }} </mat-option>
           </mat-select>
         </mat-form-field>

@@ -19,11 +19,17 @@ export class AppConstants {
 
     public static SETTINGS_NAVIGATION_OBJECT = { 'id': 'settings', 'name': 'Settings' };
 
-    public static ALL_SKILLS = [
-      {name: 'Java', displayName: 'Java'},
-      {name: 'Angular', displayName: 'Angular'},
-      {name: 'Dot Net', displayName: 'Dot Net'}
-    ];
+    // public static ALL_SKILLS = [
+    //   {name: 'Java', displayName: 'Java'},
+    //   {name: 'Angular', displayName: 'Angular'},
+    //   {name: 'Dot Net', displayName: 'Dot Net'}
+    // ];
+
+    public static ALL_FONT_SIZE = [
+      {id: '10', displayName: '10px'},
+      {td: '15', displayName: '15px'},
+      {id: '20', displayName: '20px'}
+   ];
 
 
 }
