@@ -30,8 +30,8 @@ export class FormComponent implements OnInit {
  countries = [{'id':1, 'name':'India'}, {'id':2, 'name': 'USA'}, {'id':3, 'name': 'UK'}];
  allSkills: Observable<any[]>;
  allFonts: Observable<any[]>;
- allHeros: Observable<any[]>;
- // heroes: Hero[];
+ // allHeros: Observable<any[]>;
+ allHeros: Hero[];
  
  langs: string[] = [
     'English',
