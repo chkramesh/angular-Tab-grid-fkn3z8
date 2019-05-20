@@ -33,11 +33,6 @@ export class FormComponent implements OnInit {
     'German',
   ];
 
-  constructor(private formBuilder: FormBuilder, 
-    // private http: Http,
-    private commonAppService: CommonAppService,
-    private storage: LocalStorageService) { }
-
   exampleForm: FormGroup;
   id: FormControl;
   username: String;
@@ -61,11 +56,16 @@ export class FormComponent implements OnInit {
   //  endDateDivShow: boolean;
   //  managerName: any;
 
-  
-  
+  constructor(private formBuilder: FormBuilder, 
+    // private http: Http,
+    private commonAppService: CommonAppService,
+    private storage: LocalStorageService) { 
+
+
+  }
 
   ngOnInit() {
-     this.buildForm();
+     // this.buildForm();
     // this.getUser(1);
     // this.fetchUserRecord(1);
 
@@ -80,6 +80,8 @@ export class FormComponent implements OnInit {
 
     // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     //         console.log('Form 5 - 1 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName + ' country = ' +this.currentUser.country);
+
+    this.buildForm();
 
            
   }
@@ -100,8 +102,8 @@ export class FormComponent implements OnInit {
       language : '',
       region : '',
       role: '',
-      // skill: [''],
-      skill: [this.allSkills[2]],
+      skill: [''],
+      // skill: [this.allSkills[2]],
       email: [''],
       password: [''],      
       mgrOption : ''
