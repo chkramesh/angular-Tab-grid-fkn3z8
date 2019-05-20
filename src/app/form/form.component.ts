@@ -29,9 +29,11 @@ export class FormComponent implements OnInit {
 
  countries = [{'id':1, 'name':'India'}, {'id':2, 'name': 'USA'}, {'id':3, 'name': 'UK'}];
  allSkills: Observable<any[]>;
- allFonts: Observable<any[]>;
+ // allFonts: Observable<any[]>;
  // allHeros: Observable<any[]>;
- allHeros: Hero[];
+
+ allFonts: any[] = AppConstants.ALL_FONT_SIZE;;
+ allHeros: Hero[] = AppConstants.HEROES;
  
  langs: string[] = [
     'English',
@@ -72,13 +74,11 @@ export class FormComponent implements OnInit {
     this.allSkills = this.commonAppService.getSkills();
     console.log('this.allSkills 1 = ' + this.allSkills);
 
-    this.allFonts = this.commonAppService.getFonts();
-    console.log('this.allFonts 1 = ' + this.allFonts);
+    // this.allFonts = AppConstants.ALL_FONT_SIZE;
+    // this.allHeros = AppConstants.HEROES;
+    console.log('this.allFonts 2 = ' + this.allFonts);    
+    console.log('this.allHeros 3 = ' + this.allHeros);
     
-    this.allHeros = AppConstants.HEROES;
-    console.log('this.allHeros 1 = ' + this.allHeros);
-    
-
     // var allSkillsData = JSON.stringify(this.allSkills);
     // console.log('this.allSkills 2 = ' + allSkillsData);
     // console.log('this.allSkills = ' + this.allSkillsData[1].name);

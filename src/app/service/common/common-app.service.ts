@@ -68,11 +68,11 @@ export class CommonAppService {
       return of(ALL_SKILLS);	      
 	}
 
-  getFonts() {
-	    // return Observable.of(ALL_FONT_SIZE);		
-      // return of(ALL_FONT_SIZE);	
-      return AppConstants.ALL_FONT_SIZE;
-	}
+  // getFonts() {
+	//     // return Observable.of(ALL_FONT_SIZE);		
+  //     // return of(ALL_FONT_SIZE);	
+  //     return AppConstants.ALL_FONT_SIZE;
+	// }
 
   // public getRecordById(recordId): Observable<any> {
   //   return this.http.get<any>(`${this.appUrl}/${recordId}`).pipe(
