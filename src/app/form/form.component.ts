@@ -67,7 +67,7 @@ export class FormComponent implements OnInit {
     console.log('this.allSkills 1 = ' + this.allSkills);
 
     this.allFonts = this.commonAppService.getFonts();
-    console.log('this.allSkills 1 = ' + this.allFonts);
+    // console.log('this.allSkills 1 = ' + this.allFonts);
 
     
 
