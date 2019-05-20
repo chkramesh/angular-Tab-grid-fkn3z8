@@ -137,6 +137,15 @@
           </mat-select>
         </mat-form-field>
 
+         <!-- <mat-form-field fxFlex="10">
+          <mat-label>Select a Hero</mat-label>
+          <mat-select (selectionChange)="heroChange($event)" formControlName="heros">
+            <mat-option value="">Select a Hero</mat-option>
+            <mat-option *ngFor="let hero of allHeros" [value]="hero.id">
+            {{ hero.name }} </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
         <mat-form-field fxFlex="10">
           <input matInput  type="text"  placeholder="Email" formControlName="email">
         </mat-form-field>
