@@ -73,11 +73,6 @@ export class CommonAppService {
       );
   }
 
-  getSkills() {
-	    // return Observable.of(ALL_SKILLS);		
-      return of(ALL_SKILLS);	      
-	}
-
   /**
    * Handle Http operation that failed.
    * Let the app continue.

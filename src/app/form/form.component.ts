@@ -71,7 +71,7 @@ export class FormComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, 
     // private http: Http,
-    private commonAppService: CommonAppService,
+    private commonappservice: CommonAppService,
     private storage: LocalStorageService) { 
 
     // this.allSkills = this.commonAppService.getSkills();
@@ -96,7 +96,8 @@ export class FormComponent implements OnInit {
     // this.getUser(1);
     // this.fetchUserRecord(1);
 
-    this.getSkills();
+    // this.getSkills();
+    this.getSkillsTest();
 
     // this.allSkills = this.commonAppService.getSkills();
     // console.log('this.allSkills 1 = ' + this.allSkills);
@@ -153,10 +154,22 @@ export class FormComponent implements OnInit {
   // allSkills: Observable<Skill[]>;
 
   getSkills(): void {
-    this.commonAppService.getSkillsTest()
+    this.commonappservice.getSkillsTest()
     // .subscribe(heroes => this.heroes = heroes);
     // .subscribe(allSkills => this.allSkills = allSkills);    
     .subscribe(data => this.allSkills = data);    
+  }
+
+  getSkillsTest() {
+    console.log('Observable Component getUserOnLoad ');
+    // this.loading = true;
+    this.commonappservice.getSkillsTest().subscribe( data => {
+      // this.loading = false;
+      this.allSkills = data;
+      // this.processResults();
+      console.log(' 2 this.allSkills = ' + this.allSkills);
+      // const record = this.userResults.find(obj => obj[this.id] === userId);
+    });
   }
 
   // getUser(userId:number) {
