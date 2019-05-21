@@ -157,9 +157,9 @@
 
         <mat-form-field fxFlex="10">
           <mat-label>Select a Task</mat-label>
-          <mat-select (selectionChange)="taskChange($event)" formControlName="tasks">
+          <mat-select formControlName="tasks">
             <mat-option value="">Select a Task</mat-option>
-            <mat-option *ngFor="let task of allTasks " [value]="task.id">
+            <mat-option *ngFor="let task of allTasks$ | async" [value]="task.id">
             {{ task.description }} </mat-option>
           </mat-select>
         </mat-form-field>

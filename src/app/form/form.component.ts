@@ -32,7 +32,7 @@ export class FormComponent implements OnInit {
  countries = [{'id':1, 'name':'India'}, {'id':2, 'name': 'USA'}, {'id':3, 'name': 'UK'}];
  // allSkills: Skill[];
  allSkills: Observable<Skill[]>;
- allTasks: Observable<Task[]>;
+ allTasks$: Observable<Task[]>;
  // allFonts: Observable<any[]>;
  // allHeros: Observable<any[]>;
 
@@ -90,7 +90,6 @@ export class FormComponent implements OnInit {
 
     this.buildForm();
 
-
   }
 
   ngOnInit() {
@@ -114,9 +113,7 @@ export class FormComponent implements OnInit {
 
     // // console.log('this.allSkills = ' + this.allSkills[1].name);
     // console.log('this.allSkills 3 = ' + this.allSkills[0]);
-    // this.buildForm();
-
-           
+    // this.buildForm();           
   }
 
   public buildForm() {
@@ -174,10 +171,10 @@ export class FormComponent implements OnInit {
       console.log(' 2 this.allSkills = ' + this.allSkills);
       // const record = this.userResults.find(obj => obj[this.id] === userId);
     });
-  }
+  }  
 
-   getTasks(): void {
-    this.commonappservice.getTasks();
+  getTasks(): void {
+    this.allTasks$ = this.commonappservice.getTasks();
     // .subscribe(heroes => this.heroes = heroes);
     // .subscribe(allSkills => this.allSkills = allSkills);    
     //.subscribe(data => this.allTasks = data);    
