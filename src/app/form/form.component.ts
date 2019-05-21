@@ -253,4 +253,13 @@ export class FormComponent implements OnInit {
   //         );
   // }
 
+  countryChange(event) {
+     // console.log('value = ' + event.source.value + ' selected = ' + event.source.selected);
+     // console.log('countryChange exampleForm 1 = ' + this.exampleForm.get('country').value);
+  }
+
+  resizeTextArea(event) {}
+  languageChange(event) {}
+  heroChange(event) {}
+
 }
