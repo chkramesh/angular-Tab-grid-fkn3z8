@@ -29,9 +29,8 @@ export class FormComponent implements OnInit {
  public currentUser: Observable<User>;
 
  countries = [{'id':1, 'name':'India'}, {'id':2, 'name': 'USA'}, {'id':3, 'name': 'UK'}];
- allSkills: Skill[];
- // allSkills: Observable<any[]>;
- // allSkills: Observable<Skill[]>;
+ // allSkills: Skill[];
+    allSkills: Observable<Skill[]>;
  // allFonts: Observable<any[]>;
  // allHeros: Observable<any[]>;
 
