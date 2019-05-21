@@ -8,6 +8,7 @@ import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } f
 
 import { AppConstants  } from '../../utils/app-constants';
 import { User } from '../../models';
+import { Skill } from '../../models';
 import { ALL_SKILLS } from '../../utils/common-data';
 
 // import { ALL_FONT_SIZE } from '../../utils/common-data';
@@ -24,7 +25,8 @@ export class CommonAppService {
 
  // private results: Observable<SearchItem[]>;
   // private membersUrl = 'api/members';
-  private appUrl = 'api/user';
+  private appUrl = 'api/user';  // URL to web api
+  private skillUrl = 'api/skills';  // URL to web api
 
   constructor(private http: HttpClient) { 
     // this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
@@ -63,10 +65,38 @@ export class CommonAppService {
     );
   }
 
+  getSkillsTest (): Observable<Skill[]> {
+    return this.http.get<Skill[]>(this.skillUrl).pipe(
+        tap(data => console.log(data)),
+        // tap(skills => this.log(`fetched heroes`)),
+        catchError(this.handleError('getSkills', []))
+      );
+  }
+
   getSkills() {
 	    // return Observable.of(ALL_SKILLS);		
       return of(ALL_SKILLS);	      
 	}
+
+  /**
+   * Handle Http operation that failed.
+   * Let the app continue.
+   * @param operation - name of the operation that failed
+   * @param result - optional value to return as the observable result
+   */
+  private handleError<T> (operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+
+      // TODO: better job of transforming error for user consumption
+      // this.log(`${operation} failed: ${error.message}`);
+
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
 
   // getFonts() {
 	//     // return Observable.of(ALL_FONT_SIZE);		

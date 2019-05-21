@@ -93,6 +93,12 @@ export class InMemoryDataService implements InMemoryDbService {
     
     ];
 
+     let skills = [
+        {name: 'Java', displayName: 'Java'},
+        {name: 'Angular', displayName: 'Angular'},
+        {name: 'Dot Net', displayName: 'Dot Net'}
+    ];
+
     let heroes = [
       { id: 1, name: 'Windstorm' },
       { id: 2, name: 'Bombasto' },
@@ -112,7 +118,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 1, username:'maryl', firstName: 'Mary', lastName: 'Linda', gender:'F', country:'CAN', street:'1 Main St', city:'Edison', zip: 12345, state:'PA', location:'CAN', language: 'french', region:'',role: 'regular', skill: 'Java'},
     ];
 
-    return { members, countryList, heroes, user };
+    return { members, countryList, skills, heroes, user };
   }
 
 
