@@ -32,12 +32,12 @@ export class AppComponent  implements OnInit {
 
     this.fetchUserRecord(1);
 
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-    this.currentUser = this.currentUserSubject.asObservable();
+    // this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    // this.currentUser = this.currentUserSubject.asObservable();
 
     // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    // console.log('1 - 3 this.currentUser = ' +this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' +this.currentUser.lastName);
 
+    // console.log('5 - 1 this.currentUser = ' + this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' + this.currentUser.lastName + ' country = ' + this.currentUser.country);
    }
 
   ngOnInit() {
@@ -67,8 +67,7 @@ export class AppComponent  implements OnInit {
     // Display the data retrieved from the data model to the form model.
     this.commonappservice.getRecordById(userId)
         .subscribe(data => {
-            // this.fillForm(data);
-            // console.log(' 4 this.userResults data = ' +data.id + ' firstName = ' + data.firstName + ' country = ' +this.currentUser.country);
+            // this.fillForm(data);           
             localStorage.setItem('currentUser', JSON.stringify(data));
 
             this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
