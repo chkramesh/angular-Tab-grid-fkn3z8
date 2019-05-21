@@ -96,7 +96,7 @@ export class InMemoryDataService implements InMemoryDbService {
      let skills = [
         {name: 'Java', displayName: 'Java'},
         {name: 'Angular', displayName: 'Angular'},
-        {name: 'Dot Net', displayName: 'Dot Net'}
+        {name: 'Dot Net', displayName: 'Dot Net Test'}
     ];
 
     let heroes = [

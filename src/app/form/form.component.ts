@@ -14,6 +14,7 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { CommonAppService } from '../service/common/common-app.service';
 import { User } from '../models';
 import { Hero } from '../models';
+import { Skill } from '../models';
 
 import { AppConstants  } from '../utils/app-constants';
 
@@ -28,7 +29,9 @@ export class FormComponent implements OnInit {
  public currentUser: Observable<User>;
 
  countries = [{'id':1, 'name':'India'}, {'id':2, 'name': 'USA'}, {'id':3, 'name': 'UK'}];
- allSkills: Observable<any[]>;
+ allSkills: Skill[];
+ // allSkills: Observable<any[]>;
+ // allSkills: Observable<Skill[]>;
  // allFonts: Observable<any[]>;
  // allHeros: Observable<any[]>;
 
@@ -71,8 +74,8 @@ export class FormComponent implements OnInit {
     private commonAppService: CommonAppService,
     private storage: LocalStorageService) { 
 
-    this.allSkills = this.commonAppService.getSkills();
-    console.log('this.allSkills 1 = ' + this.allSkills);
+    // this.allSkills = this.commonAppService.getSkills();
+    // console.log('this.allSkills 1 = ' + this.allSkills);
 
     // this.allFonts = AppConstants.ALL_FONT_SIZE;
     // this.allHeros = AppConstants.HEROES;
@@ -92,6 +95,8 @@ export class FormComponent implements OnInit {
      // this.buildForm();
     // this.getUser(1);
     // this.fetchUserRecord(1);
+
+    this.getSkills();
 
     // this.allSkills = this.commonAppService.getSkills();
     // console.log('this.allSkills 1 = ' + this.allSkills);
@@ -143,6 +148,28 @@ export class FormComponent implements OnInit {
       // skill: [this.allSkills[2]]
     });
   }
+
+  // allSkills: Skill[];
+  // allSkills: Observable<Skill[]>;
+
+  getSkills(): void {
+    this.commonAppService.getSkillsTest()
+    // .subscribe(heroes => this.heroes = heroes);
+    // .subscribe(allSkills => this.allSkills = allSkills);    
+    .subscribe(data => this.allSkills = data);    
+  }
+
+  // getUser(userId:number) {
+  //   console.log('Observable Component getUserOnLoad id = ' + userId);
+  //   this.loading = true;
+  //   this.commonappservice.getUser(userId).subscribe( data => {
+  //     this.loading = false;
+  //     this.userResults = data;
+  //     // this.processResults();
+  //     console.log(' 2 this.userResults = ' + this.userResults);
+  //     // const record = this.userResults.find(obj => obj[this.id] === userId);
+  //   });
+  // }
 
 
   // createFormControls() {
