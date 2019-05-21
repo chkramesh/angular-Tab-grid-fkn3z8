@@ -137,15 +137,15 @@ export class FormComponent implements OnInit {
       language : '',
       region : '',
       role: '',
-      fontSize: [''],
+      fontSize: [this.currentUser.font],
       // skill: [],
-      /skill: [this.currentUser.skill],
+      skill: [this.currentUser.skill],
       //skill: [this.allSkills[2]],
       email: [''],
       password: [''],      
       mgrOption : '',
-      heros : '',
-      tasks : ''
+      heros : [this.currentUser.hero],
+      tasks : [this.currentUser.task],
 
       // skill: 'Angular', task: 1, hero: 12, font: '15'
      
