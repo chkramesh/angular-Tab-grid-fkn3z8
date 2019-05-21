@@ -15,6 +15,7 @@ import { CommonAppService } from '../service/common/common-app.service';
 import { User } from '../models';
 import { Hero } from '../models';
 import { Skill } from '../models';
+import { Task } from '../models';
 
 import { AppConstants  } from '../utils/app-constants';
 
@@ -30,7 +31,8 @@ export class FormComponent implements OnInit {
 
  countries = [{'id':1, 'name':'India'}, {'id':2, 'name': 'USA'}, {'id':3, 'name': 'UK'}];
  // allSkills: Skill[];
-    allSkills: Observable<Skill[]>;
+ allSkills: Observable<Skill[]>;
+ allTasks: Observable<Task[]>;
  // allFonts: Observable<any[]>;
  // allHeros: Observable<any[]>;
 
@@ -65,6 +67,7 @@ export class FormComponent implements OnInit {
   password: String;
   mgrOption: boolean;
   heros: String;
+  tasks: String;
   //  endDateDivShow: boolean;
   //  managerName: any;
 
@@ -97,6 +100,7 @@ export class FormComponent implements OnInit {
 
     // this.getSkills();
     this.getSkillsTest();
+    this.getTasks();
 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
@@ -137,7 +141,8 @@ export class FormComponent implements OnInit {
       email: [''],
       password: [''],      
       mgrOption : '',
-      heros : ''
+      heros : '',
+      tasks : ''
      
       // country: [this.countries[2].id],
       // checked: false,
@@ -153,7 +158,7 @@ export class FormComponent implements OnInit {
   // allSkills: Observable<Skill[]>;
 
   getSkills(): void {
-    this.commonappservice.getSkillsTest()
+    this.commonappservice.getSkills()
     // .subscribe(heroes => this.heroes = heroes);
     // .subscribe(allSkills => this.allSkills = allSkills);    
     .subscribe(data => this.allSkills = data);    
@@ -162,13 +167,20 @@ export class FormComponent implements OnInit {
   getSkillsTest() {
     console.log('Observable Component getUserOnLoad ');
     // this.loading = true;
-    this.commonappservice.getSkillsTest().subscribe( data => {
+    this.commonappservice.getSkills().subscribe( data => {
       // this.loading = false;
       this.allSkills = data;
       // this.processResults();
       console.log(' 2 this.allSkills = ' + this.allSkills);
       // const record = this.userResults.find(obj => obj[this.id] === userId);
     });
+  }
+
+   getTasks(): void {
+    this.commonappservice.getTasks();
+    // .subscribe(heroes => this.heroes = heroes);
+    // .subscribe(allSkills => this.allSkills = allSkills);    
+    //.subscribe(data => this.allTasks = data);    
   }
 
   // getUser(userId:number) {

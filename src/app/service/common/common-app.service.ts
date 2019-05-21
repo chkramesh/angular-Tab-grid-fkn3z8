@@ -9,6 +9,7 @@ import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } f
 import { AppConstants  } from '../../utils/app-constants';
 import { User } from '../../models';
 import { Skill } from '../../models';
+import { Task } from '../../models';
 import { ALL_SKILLS } from '../../utils/common-data';
 
 // import { ALL_FONT_SIZE } from '../../utils/common-data';
@@ -27,6 +28,7 @@ export class CommonAppService {
   // private membersUrl = 'api/members';
   private appUrl = 'api/user';  // URL to web api
   private skillUrl = 'api/skills';  // URL to web api
+  private tasksUrl = 'api/tasks';  // URL to web api
 
   constructor(private http: HttpClient) { 
     // this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
@@ -65,11 +67,18 @@ export class CommonAppService {
     );
   }
 
-  getSkillsTest (): Observable<Skill[]> {
+  getSkills (): Observable<Skill[]> {
     return this.http.get<Skill[]>(this.skillUrl).pipe(
         tap(data => console.log(data)),
         // tap(skills => this.log(`fetched heroes`)),
         catchError(this.handleError('getSkills', []))
+      );
+  }
+
+  getTasks (): Observable<Task[]> {
+    return this.http.get<Task[]>(this.tasksUrl).pipe(
+        tap(data => console.log(data)),
+        catchError(this.handleError('getTasks', []))
       );
   }
 

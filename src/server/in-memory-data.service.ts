@@ -1,5 +1,7 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
+import { Task } from '../app/models';
+
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const members = [
@@ -99,16 +101,17 @@ export class InMemoryDataService implements InMemoryDbService {
         {name: 'Dot Net', displayName: 'Dot Net'}
     ];
 
-    let heroes = [
-      { id: 1, name: 'Windstorm' },
-      { id: 2, name: 'Bombasto' },
-      { id: 3, name: 'Magneta' },
-      { id: 4, name: 'Tornado' }
-    ];
     
-    let tasks = [
+    // let tasks = [
+    //   {    id: 1,    description: 'Buy Groceries'},
+    //   {    id: 2,    description: 'Paint the garage' },
+    //   {    id: 3,    description: 'No Task' }
+    // ];
+
+     let tasks : Task[] = [
       {    id: 1,    description: 'Buy Groceries'},
-      {    id: 2,    description: 'Paint the garage' }
+      {    id: 2,    description: 'Paint the garage' },
+      {    id: 3,    description: 'No Task' }
     ];
 
   //    public static HEROES: Hero[] = [
@@ -131,7 +134,7 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 1, username:'maryl', firstName: 'Mary', lastName: 'Linda', gender:'F', country:'CAN', street:'1 Main St', city:'Edison', zip: 12345, state:'PA', location:'CAN', language: 'french', region:'',role: 'regular', skill: 'Java'},
     ];
 
-    return { members, countryList, skills, heroes, user };
+    return { members, countryList, skills, user, tasks };
   }
 
 
