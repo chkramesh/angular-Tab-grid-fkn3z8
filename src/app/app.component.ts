@@ -1084,3 +1084,13 @@ export class AppComponent  implements OnInit {
 //   }
 //  }
 // }
+
+
+
+// https://stackblitz.com/github/riyadali/townofbabylon/?file=src%2Fapp%2Fin-memory-data.service.ts
+
+// ******* How to use Gloabl *******
+// https://stackblitz.com/edit/angular-x32any
+// https://stackoverflow.com/questions/34986922/define-global-constants-in-angular-2
+
+// ******** taking different file for DEV / INT and PROD*********

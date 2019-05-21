@@ -111,6 +111,19 @@ export class InMemoryDataService implements InMemoryDbService {
       {    id: 2,    description: 'Paint the garage' }
     ];
 
+  //    public static HEROES: Hero[] = [
+  //     { id: 11, name: 'Mr. Nice' },
+  //     { id: 12, name: 'Narco' },
+  //     { id: 13, name: 'Bombasto' },
+  //     { id: 14, name: 'Celeritas' },
+  //     { id: 15, name: 'Magneta' },
+  //     { id: 16, name: 'RubberMan' },
+  //     { id: 17, name: 'Dynama' },
+  //     { id: 18, name: 'Dr IQ' },
+  //     { id: 19, name: 'Magma' },
+  //     { id: 20, name: 'Tornado' }
+  //  ];
+
     let user = [
       { id: 1, username:'jbrown', firstName: 'Windstorm', lastName: 'WindstormL', gender:'M', country:'USA', street:'1 Main St', city:'Edison', zip: 12345, state:'NJ', location:'USA', language: 'Eng', region:'EAST', role: 'admin', skill: 'Java'},
       { id: 1, username:'johns', firstName: 'John', lastName: 'smith', gender:'M', country:'USA', street:'1 Main St', city:'Edison', zip: 12345, state:'NY', location:'USA', language: 'Eng', region:'west',role: 'manager', skill: 'Java'},
