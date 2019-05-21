@@ -128,10 +128,10 @@ export class InMemoryDataService implements InMemoryDbService {
   //  ];
 
     let user = [
-      { id: 1, username:'jbrown', firstName: 'Windstorm', lastName: 'WindstormL', gender:'M', country:'USA', street:'1 Main St', city:'Edison', zip: 12345, state:'NJ', location:'USA', language: 'Eng', region:'EAST', role: 'admin', skill: 'Java'},
-      { id: 1, username:'johns', firstName: 'John', lastName: 'smith', gender:'M', country:'USA', street:'1 Main St', city:'Edison', zip: 12345, state:'NY', location:'USA', language: 'Eng', region:'west',role: 'manager', skill: 'Java'},
-      { id: 1, username:'mortj', firstName: 'Mort', lastName: 'Johnston', gender:'M', country:'USA', street:'1 Main St', city:'Edison', zip: 12345, state:'NJ', location:'USA', language: 'Eng', region:'Midwest',role: 'regular', skill: 'Java'},
-      { id: 1, username:'maryl', firstName: 'Mary', lastName: 'Linda', gender:'F', country:'CAN', street:'1 Main St', city:'Edison', zip: 12345, state:'PA', location:'CAN', language: 'french', region:'',role: 'regular', skill: 'Java'},
+      { id: 1, username:'jbrown', firstName: 'Windstorm', lastName: 'WindstormL', gender:'M', country:'USA', street:'1 Main St', city:'Edison', zip: 12345, state:'NJ', location:'USA', language: 'Eng', region:'EAST', role: 'admin', skill: 'Java', task: 1, hero: 11, font: '10'},
+      { id: 1, username:'johns', firstName: 'John', lastName: 'smith', gender:'M', country:'USA', street:'1 Main St', city:'Edison', zip: 12345, state:'NY', location:'USA', language: 'Eng', region:'west',role: 'manager', skill: 'Angular', task: 1, hero: 12, font: '15'},
+      { id: 1, username:'mortj', firstName: 'Mort', lastName: 'Johnston', gender:'M', country:'USA', street:'1 Main St', city:'Edison', zip: 12345, state:'NJ', location:'USA', language: 'Eng', region:'Midwest',role: 'regular', skill: 'Java', task: 1, hero: 13, font: '15'},
+      { id: 1, username:'maryl', firstName: 'Mary', lastName: 'Linda', gender:'F', country:'CAN', street:'1 Main St', city:'Edison', zip: 12345, state:'PA', location:'CAN', language: 'french', region:'',role: 'regular', skill: 'Java', task: 1, hero: 14, font: '15'},
     ];
 
     return { members, countryList, skills, user, tasks };

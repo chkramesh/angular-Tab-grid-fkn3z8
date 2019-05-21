@@ -88,6 +88,9 @@ export class FormComponent implements OnInit {
     // console.log('this.allSkills 2 = ' + allSkillsData);
     // console.log('this.allSkills = ' + this.allSkillsData[1].name);
 
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font);
+
     this.buildForm();
 
   }
@@ -101,9 +104,10 @@ export class FormComponent implements OnInit {
     this.getSkillsTest();
     this.getTasks();
 
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-    console.log('5 - 1 this.currentUser = ' + this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' + this.currentUser.lastName + ' country = ' + this.currentUser.country);
+    // console.log('5 - 1 this.currentUser = ' + this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' + this.currentUser.lastName + ' country = ' + this.currentUser.country);
+    // console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font);
 
     // this.allSkills = this.commonAppService.getSkills();
     // console.log('this.allSkills 1 = ' + this.allSkills);
@@ -120,7 +124,8 @@ export class FormComponent implements OnInit {
       // create form with validators
       this.exampleForm = this.formBuilder.group({ 
       firstName : ['', [Validators.required,Validators.minLength(3), Validators.maxLength(10)]],
-      lastName : '', 
+      // lastName : '', 
+      lastName : [this.currentUser.lastName], 
       gender: '',
       currentDate : '',
       country : '',
@@ -133,13 +138,16 @@ export class FormComponent implements OnInit {
       region : '',
       role: '',
       fontSize: [''],
-      skill: [''],
+      // skill: [],
+      /skill: [this.currentUser.skill],
       //skill: [this.allSkills[2]],
       email: [''],
       password: [''],      
       mgrOption : '',
       heros : '',
       tasks : ''
+
+      // skill: 'Angular', task: 1, hero: 12, font: '15'
      
       // country: [this.countries[2].id],
       // checked: false,

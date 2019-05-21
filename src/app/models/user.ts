@@ -11,10 +11,15 @@ export class User {
      public location: string,
      public lang: string,
      public region: string,
-     public role: string
+     public role: string,
+     public skill: string,
+     public task: number,
+     public hero: number,
+     public font: string
    ){};
 }
 
+// // skill: 'Angular', task: 1, hero: 12, font: '15'
 
 // export class User {
 //     id: number;
