@@ -30,7 +30,7 @@ export class AppComponent  implements OnInit {
 
   constructor(private commonappservice: CommonAppService) {
 
-    this.fetchUserRecord(3);
+    this.fetchUserRecord(1);
 
     // this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     // this.currentUser = this.currentUserSubject.asObservable();

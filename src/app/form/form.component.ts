@@ -89,7 +89,7 @@ export class FormComponent implements OnInit {
     // console.log('this.allSkills = ' + this.allSkillsData[1].name);
 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font);
+    console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font + ' gender = ' + this.currentUser.gender);
 
     this.buildForm();
 
@@ -126,7 +126,7 @@ export class FormComponent implements OnInit {
       firstName : ['', [Validators.required,Validators.minLength(3), Validators.maxLength(10)]],
       // lastName : '', 
       lastName : [this.currentUser.lastName], 
-      gender: '',
+      gender:[this.currentUser.gender],
       currentDate : '',
       country : '',
       street : '',
