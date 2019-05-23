@@ -1096,3 +1096,6 @@ export class AppComponent  implements OnInit {
 // ******** taking different file for DEV / INT and PROD*********
 
 // https://blog.usejournal.com/how-to-map-rest-api-data-using-decorator-pattern-in-angular-6-94eb49ba16b1
+
+// Angular HttpClient modify response in service
+// https://stackoverflow.com/questions/47617169/angular-httpclient-modify-response-in-service
