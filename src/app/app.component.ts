@@ -1094,3 +1094,5 @@ export class AppComponent  implements OnInit {
 // https://stackoverflow.com/questions/34986922/define-global-constants-in-angular-2
 
 // ******** taking different file for DEV / INT and PROD*********
+
+// https://blog.usejournal.com/how-to-map-rest-api-data-using-decorator-pattern-in-angular-6-94eb49ba16b1
