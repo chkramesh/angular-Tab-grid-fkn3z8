@@ -1099,3 +1099,6 @@ export class AppComponent  implements OnInit {
 
 // Angular HttpClient modify response in service
 // https://stackoverflow.com/questions/47617169/angular-httpclient-modify-response-in-service
+
+// MAT autocomplete ********************
+// https://stackblitz.com/edit/autocomplete-force-selection-tests-w2fqww?file=app%2Fapp.component.html
