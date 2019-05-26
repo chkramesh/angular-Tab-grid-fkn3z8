@@ -81,21 +81,19 @@ export class FormComponent implements OnInit {
 
     // this.allSkills = this.commonAppService.getSkills();
     // console.log('this.allSkills 1 = ' + this.allSkills);
-
     // this.allFonts = AppConstants.ALL_FONT_SIZE;
-    // this.allHeros = AppConstants.HEROES;
-    console.log('this.allFonts 2 = ' + this.allFonts);    
-    console.log('this.allHeros 3 = ' + this.allHeros);
-    
+    // this.allHeros = AppConstants.HEROES;    
     // var allSkillsData = JSON.stringify(this.allSkills);
     // console.log('this.allSkills 2 = ' + allSkillsData);
     // console.log('this.allSkills = ' + this.allSkillsData[1].name);
 
+    // console.log('this.allFonts 2 = ' + this.allFonts);    
+    // console.log('this.allHeros 3 = ' + this.allHeros);
+
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font + ' gender = ' + this.currentUser.gender);
+    // console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font + ' gender = ' + this.currentUser.gender);
 
     this.buildForm();
-
   }
 
   ngOnInit() {
@@ -161,10 +159,10 @@ export class FormComponent implements OnInit {
       // skill: [this.allSkills[2]]
     });
 
-    // this.states = this.exampleForm
-    //   // .get('address')
-    //   .get('state')
-    //   .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
+    this.states = this.exampleForm
+      // .get('address')
+      .get('state')
+      .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
   }
 
   // allSkills: Skill[];

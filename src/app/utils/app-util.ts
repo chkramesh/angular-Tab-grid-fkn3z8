@@ -7,7 +7,7 @@ export interface IUSState {
 }
 
 export function USStateFilter(value: string): IUSState[] {
-  console.log('AppUtils USStateFilter');
+  console.log('#################  AppUtils USStateFilter');
   return USStates.filter(state => {
     return (
       (state.code.length === 2 && state.code.toLowerCase() === value.toLowerCase()) ||
