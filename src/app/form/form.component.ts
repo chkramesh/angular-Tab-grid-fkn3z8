@@ -91,7 +91,7 @@ export class FormComponent implements OnInit {
     // console.log('this.allHeros 3 = ' + this.allHeros);
 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    // console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font + ' gender = ' + this.currentUser.gender);
+    console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font + ' gender = ' + this.currentUser.gender);
 
     this.buildForm();
   }
@@ -159,8 +159,8 @@ export class FormComponent implements OnInit {
       // skill: [this.allSkills[2]]
     });
 
-    console.log('this.exampleForm ############## = ' + this.exampleForm);
-    console.log('this.exampleForm ############## = ' + this.exampleForm.get('state'));
+    // console.log('this.exampleForm ############## = ' + this.exampleForm);
+    // console.log('this.exampleForm ############## = ' + this.exampleForm.get('state'));
 
     // this.states = this.exampleForm
     //   // .get('address')
