@@ -159,8 +159,8 @@ export class FormComponent implements OnInit {
       // skill: [this.allSkills[2]]
     });
 
-    // console.log('this.exampleForm ############## = ' + this.exampleForm);
-    // console.log('this.exampleForm ############## = ' + this.exampleForm.get('state'));
+    console.log('this.exampleForm ############## = ' + this.exampleForm);
+    console.log('this.exampleForm ############## = ' + this.exampleForm.get('state'));
 
     // this.states = this.exampleForm
     //   // .get('address')

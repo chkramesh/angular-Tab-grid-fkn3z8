@@ -12,11 +12,11 @@ export class GlobalErrorHandler implements ErrorHandler {
   
   handleError(error: Error | HttpErrorResponse) {
     const errorService = this.injector.get(ErrorService);
-    const logger = this.injector.get(LoggingService);
+    // const logger = this.injector.get(LoggingService);
     const notifier = this.injector.get(NotificationService);
 
     console.log('errorService = '+errorService);
-    console.log('errorService = '+logger);
+    // console.log('errorService = '+logger);
     console.log('notifier = '+errorService);
 
     let message;
@@ -34,7 +34,7 @@ export class GlobalErrorHandler implements ErrorHandler {
       notifier.showError(message);
     }
     // Always log errors
-    logger.logError(message, stackTrace);
+    // logger.logError(message, stackTrace);
     console.error(error);
   }
 }
