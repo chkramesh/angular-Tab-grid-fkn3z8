@@ -133,7 +133,7 @@ export class FormComponent implements OnInit {
       street : '',
       city : '',
       zip : '',
-      state : '',
+      state : ['', [Validators.required]],
       location : '',
       language : '',
       region : '',

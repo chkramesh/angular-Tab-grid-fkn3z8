@@ -222,6 +222,29 @@
                 {{ state.name }}
               </mat-option>
             </mat-autocomplete>
+            <!-- <mat-error *ngIf="exampleForm.get('state').hasError('required')">
+              State is required
+            </mat-error> -->
+
+            <mat-error *ngIf="exampleForm.get('state').hasError('required')">
+              <span [hidden]="!exampleForm.controls['state'].errors.required">
+                  This field is required.
+              </span>
+            </mat-error>
+
+            <!-- <mat-error *ngIf="exampleForm.controls.firstName.invalid">
+              <span [hidden]="!exampleForm.controls['firstName'].errors.required">
+                This field is required.
+              </span> 
+              <span [hidden]="!exampleForm.controls['firstName'].errors.maxlength">
+                Maximmum alowed charactes are 10
+              </span>  
+              <span [hidden]="!exampleForm.controls['firstName'].errors.minlength">
+                Minium alowed charactes are 3
+              </span>          
+          </mat-error> -->
+
+
           </mat-form-field>
 
       </div>

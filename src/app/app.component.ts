@@ -1102,3 +1102,4 @@ export class AppComponent  implements OnInit {
 
 // MAT autocomplete ********************
 // https://stackblitz.com/edit/autocomplete-force-selection-tests-w2fqww?file=app%2Fapp.component.html
+// https://stackblitz.com/edit/angular-material-autocomplete-async2?file=src%2Fapp%2Fin-memory-data.service.ts
