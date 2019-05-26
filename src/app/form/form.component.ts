@@ -94,12 +94,12 @@ export class FormComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font + ' gender = ' + this.currentUser.gender);
 
-    // this.buildForm();
+    this.buildForm();
 
   }
 
   ngOnInit() {
-    this.buildForm();
+    // this.buildForm();
     // this.getUser(1);
     // this.fetchUserRecord(1);
 
