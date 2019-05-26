@@ -159,10 +159,13 @@ export class FormComponent implements OnInit {
       // skill: [this.allSkills[2]]
     });
 
-    this.states = this.exampleForm
-      // .get('address')
-      .get('state')
-      .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
+    console.log('this.exampleForm ############## = ' + this.exampleForm);
+    console.log('this.exampleForm ############## = ' + this.exampleForm.get('state'));
+
+    // this.states = this.exampleForm
+    //   // .get('address')
+    //   .get('state')
+    //   .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
   }
 
   // allSkills: Skill[];
