@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, AfterViewInit, OnDestroy, OnInit } from '@angular/core';
 
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
@@ -7,6 +7,8 @@ import { startWith } from 'rxjs/operators';
 import { FormGroup,  Validators, FormBuilder} from '@angular/forms';
 import { ReactiveFormsModule, FormControl, FormsModule } from "@angular/forms";
 import { Http, RequestOptionsArgs, Headers, Response } from "@angular/http";
+import { MatAutocompleteSelectedEvent, MatAutocompleteTrigger, VERSION} from '@angular/material';
+import { Subscription } from 'rxjs/Subscription';
 
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map'
@@ -26,7 +28,9 @@ import { IUSState, USStateFilter  } from '../utils/app-util';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent implements OnInit {
+export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
+
+ subscription: Subscription;
 
  private currentUserSubject: BehaviorSubject<User>;
  public currentUser: Observable<User>;
@@ -41,6 +45,10 @@ export class FormComponent implements OnInit {
  allFonts: any[] = AppConstants.ALL_FONT_SIZE;;
  allHeros: Hero[] = AppConstants.HEROES;
  states: Observable<IUSState[]>;
+
+ version = VERSION;
+ stateCtrl: FormControl;
+ @ViewChild(MatAutocompleteTrigger) trigger: MatAutocompleteTrigger;
  
  langs: string[] = [
     'English',
@@ -94,6 +102,33 @@ export class FormComponent implements OnInit {
     console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font + ' gender = ' + this.currentUser.gender);
 
     this.buildForm();
+
+    this.stateCtrl = new FormControl();
+  }
+
+  ngAfterViewInit() {
+    this._subscribeToClosingActions();
+  }
+
+  ngOnDestroy() {
+    if (this.subscription && !this.subscription.closed) {
+      this.subscription.unsubscribe();
+    }
+  }
+
+  private _subscribeToClosingActions(): void {
+    if (this.subscription && !this.subscription.closed) {
+      this.subscription.unsubscribe();
+    }
+
+    this.subscription = this.trigger.panelClosingActions
+      .subscribe(e => {
+        if (!e || !e.source) {
+          this.stateCtrl.setValue(null);
+        }
+      },
+      err => this._subscribeToClosingActions(),
+      () => this._subscribeToClosingActions());
   }
 
   ngOnInit() {
@@ -269,6 +304,10 @@ export class FormComponent implements OnInit {
   //         // }
   //         );
   // }
+
+  handler(event: MatAutocompleteSelectedEvent): void {
+    this.stateCtrl.setValue(event.option.value);
+  }
 
   countryChange(event) {
      // console.log('value = ' + event.source.value + ' selected = ' + event.source.selected);
