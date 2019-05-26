@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, map, tap, switchMap, debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { startWith } from 'rxjs/operators';
 
 import { FormGroup,  Validators, FormBuilder} from '@angular/forms';
 import { ReactiveFormsModule, FormControl, FormsModule } from "@angular/forms";
@@ -18,6 +19,7 @@ import { Skill } from '../models';
 import { Task } from '../models';
 
 import { AppConstants  } from '../utils/app-constants';
+import { IUSState, USStateFilter  } from '../utils/app-util';
 
 @Component({
   selector: 'app-form',
@@ -38,6 +40,7 @@ export class FormComponent implements OnInit {
 
  allFonts: any[] = AppConstants.ALL_FONT_SIZE;;
  allHeros: Hero[] = AppConstants.HEROES;
+ states: Observable<IUSState[]>;
  
  langs: string[] = [
     'English',
@@ -91,12 +94,12 @@ export class FormComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font + ' gender = ' + this.currentUser.gender);
 
-    this.buildForm();
+    // this.buildForm();
 
   }
 
   ngOnInit() {
-     // this.buildForm();
+    this.buildForm();
     // this.getUser(1);
     // this.fetchUserRecord(1);
 
@@ -157,6 +160,11 @@ export class FormComponent implements OnInit {
       // language:'',
       // skill: [this.allSkills[2]]
     });
+
+    this.states = this.exampleForm
+      // .get('address')
+      .get('state')
+      .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
   }
 
   // allSkills: Skill[];

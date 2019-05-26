@@ -174,6 +174,49 @@
 
       </div>
 
+       <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
+
+        <!-- <mat-form-field fxFlex="10">
+          <mat-label>Select a Skill</mat-label>
+          <mat-select (selectionChange)="languageChange($event)" formControlName="skill">
+            <mat-option value="">Select a Skill</mat-option>
+            <mat-option *ngFor="let skill of allSkills" [value]="skill.name">
+            {{ skill.displayName }} </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+         <mat-form-field fxFlex="10">
+          <mat-label>Select a Hero</mat-label>
+          <mat-select (selectionChange)="heroChange($event)" formControlName="heros">
+            <mat-option value="">Select a Hero</mat-option>
+            <mat-option *ngFor="let hero of allHeros" [value]="hero.id">
+            {{ hero.name }} </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
+        <mat-form-field fxFlex="10">
+          <mat-label>Select a Task</mat-label>
+          <mat-select formControlName="tasks">
+            <mat-option value="">Select a Task</mat-option>
+            <mat-option *ngFor="let task of allTasks$ | async" [value]="task.id">
+            {{ task.description }} </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+         <mat-form-field fxFlex="30%">
+            <input type="text" placeholder="State" aria-label="State" matInput formControlName="state" [matAutocomplete]="stateAuto">
+            <mat-autocomplete #stateAuto="matAutocomplete">
+              <mat-option *ngFor="let state of states | async" [value]="state.name">
+                {{ state.name }}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="userForm.get('address').get('state').hasError('required')">
+              State is required
+            </mat-error>
+          </mat-form-field>
+
+      </div>
+
 
      
       
