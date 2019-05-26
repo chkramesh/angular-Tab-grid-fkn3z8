@@ -194,14 +194,14 @@
           </mat-select>
         </mat-form-field> -->
 
-        <mat-form-field fxFlex="10">
+        <!-- <mat-form-field fxFlex="10">
           <mat-label>Select a Task</mat-label>
           <mat-select formControlName="tasks">
             <mat-option value="">Select a Task</mat-option>
             <mat-option *ngFor="let task of allTasks$ | async" [value]="task.id">
             {{ task.description }} </mat-option>
           </mat-select>
-        </mat-form-field>
+        </mat-form-field> -->
 
          <!-- <mat-form-field fxFlex="30%">
             <input type="text" placeholder="State" aria-label="State" matInput formControlName="state" [matAutocomplete]="stateAuto">
