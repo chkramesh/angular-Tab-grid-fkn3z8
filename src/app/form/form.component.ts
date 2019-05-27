@@ -306,6 +306,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
   // }
 
   handler(event: MatAutocompleteSelectedEvent): void {
+    console.log('handler event.option.value = ' +event.option.value);
     this.stateCtrl.setValue(event.option.value);
   }
 
@@ -316,6 +317,8 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
 
   resizeTextArea(event) {}
   languageChange(event) {}
-  heroChange(event) {}
+  heroChange(event) {
+     console.log('heroChange event.option.value = ' +event.option.value);
+  }
 
 }
