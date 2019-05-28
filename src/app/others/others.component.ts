@@ -29,6 +29,8 @@ import { IUSState, USStateFilter  } from '../utils/app-util';
 })
 export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
  
+ exampleForm: FormGroup;
+
  // private currentUserSubject: BehaviorSubject<User>;
  public currentUser: Observable<User>;
 
@@ -41,35 +43,9 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
 
  allFonts: any[] = AppConstants.ALL_FONT_SIZE;;
  allHeros: Hero[] = AppConstants.HEROES;
- states: Observable<IUSState[]>;
+ states: Observable<IUSState[]>; 
 
-  exampleForm: FormGroup;
-  // id: FormControl;
-  username: String;
-  firstName: String;
-  lastName: String;
-  gender: String;
-  currentDate: Date;
-  country: String;
-  street: String;
-  city: String;
-  zip: number;
-  state: String;
-  location: String;
-  language: String;
-  region: String;
-  role: String;
-  fontSize: String;
-  skill: String;
-  email: String;
-  password: String;
-  mgrOption: boolean;
-  heros: String;
-  tasks: String;
-  //  endDateDivShow: boolean;
-  //  managerName: any;
-
-  constructor(private formBuilder: FormBuilder, 
+ constructor(private formBuilder: FormBuilder, 
     // private http: Http,
     private commonappservice: CommonAppService,
     private storage: LocalStorageService) { 
@@ -77,97 +53,60 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font + ' gender = ' + this.currentUser.gender);
 
-    this.buildForm();
-
-    this.stateCtrl = new FormControl();
-  }
-
-  // ngAfterViewInit() {
-  //   this._subscribeToClosingActions();
-  // }
-
-  // ngOnDestroy() {
-  //   if (this.subscription && !this.subscription.closed) {
-  //     this.subscription.unsubscribe();
-  //   }
-  // }
-
-  // private _subscribeToClosingActions(): void {
-  //   if (this.subscription && !this.subscription.closed) {
-  //     this.subscription.unsubscribe();
-  //   }
-
-  //   this.subscription = this.trigger.panelClosingActions
-  //     .subscribe(e => {
-  //       if (!e || !e.source) {
-  //         this.stateCtrl.setValue(null);
-  //       }
-  //     },
-  //     err => this._subscribeToClosingActions(),
-  //     () => this._subscribeToClosingActions());
-  // }
-
-  ngOnInit() {
     // this.buildForm();
-    // this.getUser(1);
-    // this.fetchUserRecord(1);
+    // this.stateCtrl = new FormControl();
+ }
 
-    // this.getSkills();
-    this.getSkillsTest();
-    this.getTasks();
-
-    // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-
-    // console.log('5 - 1 this.currentUser = ' + this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' + this.currentUser.lastName + ' country = ' + this.currentUser.country);
-    // console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font);
-
-    // this.allSkills = this.commonAppService.getSkills();
-    // console.log('this.allSkills 1 = ' + this.allSkills);
-
-    // var allSkillsData = JSON.stringify(this.allSkills);
-    // console.log('this.allSkills 2 = ' + allSkillsData);
-
-    // // console.log('this.allSkills = ' + this.allSkills[1].name);
-    // console.log('this.allSkills 3 = ' + this.allSkills[0]);
-    // this.buildForm();           
-  }
+ public buildFormVariables() {
+      username: String;
+      firstName: String;
+      lastName: String;
+      gender: String;
+      currentDate: Date;
+      country: String;
+      street: String;
+      city: String;
+      zip: Number;
+      state: String;
+      location: String;
+      language: String;
+      region: String;
+      role: String;
+      fontSize: String;
+      skill: String;
+      email: String;
+      password: String;
+      mgrOption: Boolean;
+      heros: String;
+      tasks: String;
+  }    
 
   public buildForm() {
+      // this.buildFormVariables();
+
       // create form with validators
       this.exampleForm = this.formBuilder.group({ 
-      firstName : ['', [Validators.required,Validators.minLength(3), Validators.maxLength(10)]],
-      // lastName : '', 
-      lastName : [this.currentUser.lastName], 
-      gender:[this.currentUser.gender],
-      currentDate : '',
-      country : '',
-      street : '',
-      city : '',
-      zip : '',
-      state : ['', [Validators.required]],
-      location : '',
-      language : '',
-      region : '',
-      role: '',
-      fontSize: [this.currentUser.font],
-      // skill: [],
-      skill: [this.currentUser.skill],
-      //skill: [this.allSkills[2]],
-      email: [''],
-      password: [''],      
-      mgrOption : '',
-      heros : [this.currentUser.hero],
-      tasks : [this.currentUser.task],
-
-      // skill: 'Angular', task: 1, hero: 12, font: '15'
-     
-      // country: [this.countries[2].id],
-      // checked: false,
-      // indeterminate: false,
-      // locationflag:true,
-      // homelocation:true,
-      // language:'',
-      // skill: [this.allSkills[2]]
+        firstName : ['', [Validators.required,Validators.minLength(3), Validators.maxLength(10)]],
+        // lastName : '', 
+        lastName : [this.currentUser.lastName], 
+        gender:[this.currentUser.gender],
+        currentDate : '',
+        country : '',
+        street : '',
+        city : '',
+        zip : '',
+        state : ['', [Validators.required]],
+        location : '',
+        language : '',
+        region : '',
+        role: '',
+        fontSize: [this.currentUser.font],
+        skill: [this.currentUser.skill],
+        email: [''],
+        password: [''],      
+        mgrOption : '',
+        heros : [this.currentUser.hero],
+        tasks : [this.currentUser.task]
     });
 
     console.log('this.exampleForm ############## = ' + this.exampleForm);
@@ -179,8 +118,17 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
       .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
   }
 
-  // allSkills: Skill[];
-  // allSkills: Observable<Skill[]>;
+  
+  ngOnInit() {
+    this.buildForm();
+    // this.getUser(1);
+    // this.fetchUserRecord(1);
+
+    // this.getSkills();
+    this.getSkillsTest();
+    this.getTasks();
+  }
+
 
   getSkills(): void {
     this.commonappservice.getSkills()
@@ -207,84 +155,11 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
     // .subscribe(allSkills => this.allSkills = allSkills);    
     //.subscribe(data => this.allTasks = data);    
   }
-
-  // getUser(userId:number) {
-  //   console.log('Observable Component getUserOnLoad id = ' + userId);
-  //   this.loading = true;
-  //   this.commonappservice.getUser(userId).subscribe( data => {
-  //     this.loading = false;
-  //     this.userResults = data;
-  //     // this.processResults();
-  //     console.log(' 2 this.userResults = ' + this.userResults);
-  //     // const record = this.userResults.find(obj => obj[this.id] === userId);
-  //   });
-  // }
-
-
-  // createFormControls() {
-  //   this.firstName = new FormControl('', Validators.required);
-  //   this.lastName = new FormControl('', Validators.required);
-  //   this.email = new FormControl('', [
-  //     Validators.required,
-  //     Validators.pattern("[^ @]*@[^ @]*")
-  //   ]);
-  //   this.password = new FormControl('', [
-  //     Validators.required,
-  //     Validators.minLength(8)
-  //   ]);
-  //   this.language = new FormControl('');
-  // }
-
-  // createForm() {
-  //   this.myform = new FormGroup({
-  //     name: new FormGroup({
-  //       firstName: this.firstName,
-  //       lastName: this.lastName,
-  //     }),
-  //     email: this.email,
-  //     password: this.password,
-  //     language: this.language
-  //   });
-  // }
-
-
-
-  // getUser(userId:number) {
-  //   console.log('Observable Component getUserOnLoad id = ' + userId);
-  //   this.loading = true;
-  //   this.commonappservice.getUser(userId).subscribe( data => {
-  //     this.loading = false;
-  //     this.userResults = data;
-  //     // this.processResults();
-  //     console.log(' 2 this.userResults = ' + this.userResults);
-  //     // const record = this.userResults.find(obj => obj[this.id] === userId);
-  //   });
-  // }
-
-  // processResults() {
-  //   // Do some stuff with your results, this.Result is set now
-  //   console.log(' 3 this.userResults = ' + this.userResults);
-  // }
-
-  // public fetchUserRecord(userId:number) {
-  //   // Display the data retrieved from the data model to the form model.
-  //   this.commonappservice.getRecordById(userId)
-  //       .subscribe(data => {
-  //           // this.fillForm(data);
-  //           console.log(' 3 this.userResults data = ' +data.id + ' firstName = ' + data.firstName);
-  //         },
-  //         // (err: HttpErrorResponse) => {
-  //         //   console.log(err.error);
-  //         //   console.log(err.message);
-  //         //   this.handleError(err);
-  //         // }
-  //         );
-  // }
-
-  // handler(event: MatAutocompleteSelectedEvent): void {
-  //   console.log('handler event.option.value = ' +event.option.value);
-  //   this.stateCtrl.setValue(event.option.value);
-  // }
+  
+  stateHandler(event: MatAutocompleteSelectedEvent): void {
+    console.log('stateHandler event.option.value = ' +event.option.value);
+    // this.stateCtrl.setValue(event.option.value);
+  }
 
   countryChange(event) {
      // console.log('value = ' + event.source.value + ' selected = ' + event.source.selected);
