@@ -1106,3 +1106,65 @@ export class AppComponent  implements OnInit {
 // MAT autocomplete ********************
 // https://stackblitz.com/edit/autocomplete-force-selection-tests-w2fqww?file=app%2Fapp.component.html
 // https://stackblitz.com/edit/angular-material-autocomplete-async2?file=src%2Fapp%2Fin-memory-data.service.ts
+
+
+// advisorId: any | undefined;
+// const data = fromPromise(advCancelPromiseRsp );
+
+// export class BalancesLabels {
+//     // Balance Field Labels
+//     static TOTAL_BALANCE: string = 'NXP_BALANCES.SUMMARY.TOTAL_BALANCE';
+//     static TOTAL_ACCOUNT_WORTH: string = 'NXP_BALANCES.SUMMARY.TOTAL_ACCOUNT_WORTH';
+//     static TOTAL_ACCOUNTS_WORTH: string = 'NXP_BALANCES.SUMMARY.TOTAL_ACCOUNTS_WORTH
+// }
+
+// export class RoleLookupUtils {
+//     static ROLE_NAMES: string[] = ['System Feature', 'FI Role',
+//       'AWR Login Role', 'MGT Role', 'Compliance Role', 'ASST Role', 'Display All'];
+// }
+
+// ////
+
+// data.subscribe(
+//       (res: any) => {
+//         this.initForm(res);
+//       },
+//       err => {
+//         if (err.status === 200 && err.error.text.indexOf('/LoginInitServ') !== -1) {
+//           console.log('Logging out', err.status);
+//           const event = new MouseEvent('click', {});
+//           this.logoutReference.nativeElement.dispatchEvent(event);
+//         }
+//       }
+// );
+
+// initForm(res) {
+//     console.log('initForm');
+//     console.log(res);
+//     console.log(res[0]);
+//     console.log('JSON response for SelectedAccountViewable');
+//     console.log(res[0].selectedAccountViewable);
+//     this.viewRadioButtonContent = res[0].AccountViewable;
+//     this.methodRadioButtonContent = res[0].AccountingMethod;
+//     this.typeRadioButtonContent = res[0].AccountType;
+//     this.editManualAcctForm = this.fb.group({
+//       acctNo: [''],
+//       acctName: ['', [Validators.required]],
+//       acctMethod: [''],
+//       acctView: [''],
+//       acctType: ['']
+//     });
+//     this.editManualAcctForm.patchValue({
+//        acctName: res[0].AccountName,
+//        acctView: res[0].selectedAccountViewable === 'true' ? 'Y' : res[0].selectedAccountViewable,
+//        acctType: res[0].selectedAccountType,
+//        acctMethod: res[0].selectedAccountingMethod
+//     });
+//     this.InvName = res[0].InvestorName;
+//     this.InvSSN = res[0].InvestorSSN;
+//     this.AcctNo = res[0].AccountNo;
+//   }
+
+
+
+
