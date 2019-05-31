@@ -28,7 +28,8 @@ import { IUSState, USStateFilter  } from '../utils/app-util';
   styleUrls: ['./others.component.css']
 })
 export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
- 
+
+  exampleForm: FormGroup;  
   subscription: Subscription;
 
   private currentUserSubject: BehaviorSubject<User>;
@@ -45,90 +46,19 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
   allHeros: Hero[] = AppConstants.HEROES;
   states: Observable<IUSState[]>;
 
-  version = VERSION;
-  stateCtrl: FormControl;
-  @ViewChild(MatAutocompleteTrigger) trigger: MatAutocompleteTrigger;
- 
-  langs: string[] = [
-    'English',
-    'French',
-    'German',
-  ];
-
-  exampleForm: FormGroup;
-  // id: FormControl;
-  // username: String;
-  // firstName: String;
-  // lastName: String;
-  // gender: String;
-  // currentDate: Date;
-  // country: String;
-  // street: String;
-  // city: String;
-  // zip: number;
-  // state: String;
-  // location: String;
-  // language: String;
-  // region: String;
-  // role: String;
-  // fontSize: String;
-  // skill: String;
-  // email: String;
-  // password: String;
-  // mgrOption: boolean;
-  // heros: String;
-  // tasks: String;
-  //  endDateDivShow: boolean;
-  //  managerName: any;
+  langs: string[] = [ 'English', 'French', 'German'];  
 
   constructor(private formBuilder: FormBuilder, 
     // private http: Http,
     private commonappservice: CommonAppService,
     private storage: LocalStorageService) { 
 
-    // this.allSkills = this.commonAppService.getSkills();
-    // console.log('this.allSkills 1 = ' + this.allSkills);
-    // this.allFonts = AppConstants.ALL_FONT_SIZE;
-    // this.allHeros = AppConstants.HEROES;    
-    // var allSkillsData = JSON.stringify(this.allSkills);
-    // console.log('this.allSkills 2 = ' + allSkillsData);
-    // console.log('this.allSkills = ' + this.allSkillsData[1].name);
+        this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font + ' gender = ' + this.currentUser.gender);
 
-    // console.log('this.allFonts 2 = ' + this.allFonts);    
-    // console.log('this.allHeros 3 = ' + this.allHeros);
-
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font + ' gender = ' + this.currentUser.gender);
-
-    // this.buildForm();
-
-    // this.stateCtrl = new FormControl();
+        // this.buildForm();
+        // this.stateCtrl = new FormControl();
   }
-
-  // ngAfterViewInit() {
-  //   this._subscribeToClosingActions();
-  // }
-
-  // ngOnDestroy() {
-  //   if (this.subscription && !this.subscription.closed) {
-  //     this.subscription.unsubscribe();
-  //   }
-  // }
-
-  // private _subscribeToClosingActions(): void {
-  //   if (this.subscription && !this.subscription.closed) {
-  //     this.subscription.unsubscribe();
-  //   }
-
-  //   this.subscription = this.trigger.panelClosingActions
-  //     .subscribe(e => {
-  //       if (!e || !e.source) {
-  //         this.stateCtrl.setValue(null);
-  //       }
-  //     },
-  //     err => this._subscribeToClosingActions(),
-  //     () => this._subscribeToClosingActions());
-  // }
 
   ngOnInit() {
     this.buildForm();
@@ -138,21 +68,8 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
     // this.getSkills();
     this.getSkillsTest();
     this.getTasks();
-
     // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-    // console.log('5 - 1 this.currentUser = ' + this.currentUser.id + ' firstName = ' + this.currentUser.firstName + ' lastName = ' + this.currentUser.lastName + ' country = ' + this.currentUser.country);
-    // console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font);
-
-    // this.allSkills = this.commonAppService.getSkills();
-    // console.log('this.allSkills 1 = ' + this.allSkills);
-
-    // var allSkillsData = JSON.stringify(this.allSkills);
-    // console.log('this.allSkills 2 = ' + allSkillsData);
-
-    // // console.log('this.allSkills = ' + this.allSkills[1].name);
-    // console.log('this.allSkills 3 = ' + this.allSkills[0]);
-    // this.buildForm();           
   }
 
   public buildForm() {
@@ -180,10 +97,7 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
           password: [''],      
           mgrOption : '',
           heros : [this.currentUser.hero],
-          tasks : [this.currentUser.task],
-
-          // skill: 'Angular', task: 1, hero: 12, font: '15'
-        
+          tasks : [this.currentUser.task],        
           // country: [this.countries[2].id],
           // checked: false,
           // indeterminate: false,
@@ -197,20 +111,58 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
     console.log('this.exampleForm ############## = ' + this.exampleForm.get('state'));
 
     this.stateLoad();
-
-    // this.states = this.exampleForm
-    //   // .get('address')
-    //   .get('state')
-    //   .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
   }
 
-  // allSkills: Skill[];
-  // allSkills: Observable<Skill[]>;
+   onChanges() {
+      console.log('onChanges');
+      console.log('onChanges country = ' +  this.addressForm.get('country').value);
+      console.log('onChanges state = ' +  this.addressForm.get('state').value);
+      const addressLine2Control = this.addressForm.get('addressLine2');
+      const stateControl = this.addressForm.controls['state'];
+
+      stateControl.setValidators(null);
+      stateControl.disable();      
+
+      this.addressForm.get('country').valueChanges
+      .subscribe(selectedCountry => {
+          console.log('onChanges selectedCountry = ' +  selectedCountry);
+          if (selectedCountry != 'USA') {
+              console.log('onChanges selectedCountry state = ' +  this.addressForm.get('state'));
+              this.addressForm.get('addressLine2').enable();
+
+              // https://stackblitz.com/edit/angular-tdjobm?file=app%2Fapp.component.ts
+              // below options are not working for select
+              // this.addressForm.get('state').reset();
+              // this.addressForm.get('state').disable();
+
+              // below code working
+              this.addressForm.controls['state'].reset();
+              stateControl.disable();
+              stateControl.setValidators(null);
+          }
+          else {
+              this.addressForm.get('addressLine2').disable();
+              this.addressForm.controls['state'].enable();
+              stateControl.setValidators([Validators.required]);
+              stateControl.updateValueAndValidity();
+          }
+      });
+
+      // this.addressForm.get('inputWorks').valueChanges
+      // .subscribe(inputWorksValue => {
+      //     if (inputWorksValue.length <= 2) {
+      //         // below code working
+      //         this.addressForm.controls['selectNope'].reset();
+      //         this.addressForm.controls['selectNope'].disable();
+      //     }
+      //     else {
+      //         this.addressForm.controls['selectNope'].enable();
+      //     }
+      // });
+   }
 
   getSkills(): void {
-    this.commonappservice.getSkills()
-    // .subscribe(heroes => this.heroes = heroes);
-    // .subscribe(allSkills => this.allSkills = allSkills);    
+    this.commonappservice.getSkills()   
     .subscribe(data => this.allSkills = data);    
   }
 
@@ -228,83 +180,7 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
 
   getTasks(): void {
     this.allTasks$ = this.commonappservice.getTasks();
-    // .subscribe(heroes => this.heroes = heroes);
-    // .subscribe(allSkills => this.allSkills = allSkills);    
-    //.subscribe(data => this.allTasks = data);    
   }
-
-  // getUser(userId:number) {
-  //   console.log('Observable Component getUserOnLoad id = ' + userId);
-  //   this.loading = true;
-  //   this.commonappservice.getUser(userId).subscribe( data => {
-  //     this.loading = false;
-  //     this.userResults = data;
-  //     // this.processResults();
-  //     console.log(' 2 this.userResults = ' + this.userResults);
-  //     // const record = this.userResults.find(obj => obj[this.id] === userId);
-  //   });
-  // }
-
-
-  // createFormControls() {
-  //   this.firstName = new FormControl('', Validators.required);
-  //   this.lastName = new FormControl('', Validators.required);
-  //   this.email = new FormControl('', [
-  //     Validators.required,
-  //     Validators.pattern("[^ @]*@[^ @]*")
-  //   ]);
-  //   this.password = new FormControl('', [
-  //     Validators.required,
-  //     Validators.minLength(8)
-  //   ]);
-  //   this.language = new FormControl('');
-  // }
-
-  // createForm() {
-  //   this.myform = new FormGroup({
-  //     name: new FormGroup({
-  //       firstName: this.firstName,
-  //       lastName: this.lastName,
-  //     }),
-  //     email: this.email,
-  //     password: this.password,
-  //     language: this.language
-  //   });
-  // }
-
-
-
-  // getUser(userId:number) {
-  //   console.log('Observable Component getUserOnLoad id = ' + userId);
-  //   this.loading = true;
-  //   this.commonappservice.getUser(userId).subscribe( data => {
-  //     this.loading = false;
-  //     this.userResults = data;
-  //     // this.processResults();
-  //     console.log(' 2 this.userResults = ' + this.userResults);
-  //     // const record = this.userResults.find(obj => obj[this.id] === userId);
-  //   });
-  // }
-
-  // processResults() {
-  //   // Do some stuff with your results, this.Result is set now
-  //   console.log(' 3 this.userResults = ' + this.userResults);
-  // }
-
-  // public fetchUserRecord(userId:number) {
-  //   // Display the data retrieved from the data model to the form model.
-  //   this.commonappservice.getRecordById(userId)
-  //       .subscribe(data => {
-  //           // this.fillForm(data);
-  //           console.log(' 3 this.userResults data = ' +data.id + ' firstName = ' + data.firstName);
-  //         },
-  //         // (err: HttpErrorResponse) => {
-  //         //   console.log(err.error);
-  //         //   console.log(err.message);
-  //         //   this.handleError(err);
-  //         // }
-  //         );
-  // }
 
   stateHandler(event: MatAutocompleteSelectedEvent): void {
     console.log('stateHandler event.option.value = ' +event.option.value);
