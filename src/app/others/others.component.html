@@ -30,11 +30,11 @@
             <mat-hint align="end">Last Name</mat-hint>
           </mat-form-field>
 
-          <mat-form-field fxFlex="7">                
+          <mat-form-field fxFlex="7%">                
           <input matInput type="date" name="Current Date" formControlName="currentDate" placeholder="Current Date">
           </mat-form-field>
 
-          <mat-radio-group name="gender" fxFlex="40" class="radioAlignment" formControlName="gender">
+          <mat-radio-group name="gender" fxFlex="40%" class="radioAlignment" formControlName="gender">
             <label>Gender:</label>
             <mat-radio-button class="example-margin" value="M">Male</mat-radio-button>
             <mat-radio-button value="F">Female</mat-radio-button>
@@ -42,42 +42,56 @@
         </div>
 
        <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
-          <mat-form-field fxFlex="10">
+          <mat-form-field fxFlex="10%">
             <input matInput type="text" placeholder="Street" formControlName="street" required>          
           </mat-form-field>
 
-          <mat-form-field fxFlex="10">
+          <mat-form-field fxFlex="10%">
             <input matInput type="text" placeholder="City" formControlName="city">
           </mat-form-field>
-          <mat-form-field fxFlex="10">
+          <mat-form-field fxFlex="5%">
             <input matInput  type="text"  placeholder="Zip" formControlName="zip">
           </mat-form-field>
-          <mat-form-field fxFlex="10">
+          <!-- <mat-form-field fxFlex="10">
             <input matInput  type="text"  placeholder="State" formControlName="state">
+          </mat-form-field> -->
+
+          <mat-form-field fxFlex="10%">
+            <input type="text" placeholder="State" aria-label="State" matInput formControlName="state" [matAutocomplete]="stateAuto">
+            <mat-autocomplete #stateAuto="matAutocomplete" (optionSelected)="stateHandler($event)">
+              <mat-option *ngFor="let state of states | async" [value]="state.name">
+                {{ state.name }}
+              </mat-option>
+            </mat-autocomplete>
+
+            <mat-error *ngIf="exampleForm.get('state').hasError('required')">
+              <span [hidden]="!exampleForm.controls['state'].errors.required">
+                  This field is required.
+              </span>
+            </mat-error>
           </mat-form-field>
        
-        </div>
+      </div>
 
-         <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
-          <mat-form-field fxFlex="10">
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
+          <mat-form-field fxFlex="10%">
             <input matInput  type="text"  placeholder="Location" formControlName="location">
           </mat-form-field>
 
-        <mat-form-field fxFlex="10">
+        <mat-form-field fxFlex="10%">
           <input matInput  type="text"  placeholder="Language" formControlName="language">
         </mat-form-field>
 
-        <mat-form-field fxFlex="10">
+        <mat-form-field fxFlex="10%">
           <input matInput  type="text"  placeholder="Region" formControlName="region">
         </mat-form-field>
 
-         <mat-form-field fxFlex="10">
+         <mat-form-field fxFlex="10%">
           <input matInput  type="text"  placeholder="Role" formControlName="role">
         </mat-form-field>
-
       </div>
 
-       <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
+      <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
      
         <mat-form-field>
           <mat-label>Select a country</mat-label>
@@ -133,7 +147,7 @@
 
       </div>
 
-       <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
+      <!-- <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
 
           <mat-form-field fxFlex="30%">
             <input type="text" placeholder="State" aria-label="State" matInput formControlName="state" [matAutocomplete]="stateAuto">
@@ -149,8 +163,7 @@
               </span>
             </mat-error>
           </mat-form-field>
-
-      </div>     
+      </div>      -->
       
     </mat-card-content>
 

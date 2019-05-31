@@ -129,6 +129,49 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
     this.getTasks();
   }
 
+  onChanges() {
+      console.log('onChanges');
+      console.log('onChanges country = ' +  this.exampleForm.get('country').value);
+      console.log('onChanges state = ' +  this.exampleForm.get('state').value);
+      const addressLine2Control = this.exampleForm.get('addressLine2');
+      const stateControl = this.exampleForm.controls['state'];
+
+      stateControl.setValidators(null);
+      stateControl.disable();      
+
+      this.addressForm.get('country').valueChanges
+      .subscribe(selectedCountry => {
+          console.log('onChanges selectedCountry = ' +  selectedCountry);
+          if (selectedCountry != 'USA') {
+              console.log('onChanges selectedCountry state = ' +  this.addressForm.get('state'));
+              this.addressForm.get('addressLine2').enable();
+
+              // below code working
+              this.addressForm.controls['state'].reset();
+              stateControl.disable();
+              stateControl.setValidators(null);
+          }
+          else {
+              this.addressForm.get('addressLine2').disable();
+              this.addressForm.controls['state'].enable();
+              stateControl.setValidators([Validators.required]);
+              stateControl.updateValueAndValidity();
+          }
+      });
+
+      // this.addressForm.get('inputWorks').valueChanges
+      // .subscribe(inputWorksValue => {
+      //     if (inputWorksValue.length <= 2) {
+      //         // below code working
+      //         this.addressForm.controls['selectNope'].reset();
+      //         this.addressForm.controls['selectNope'].disable();
+      //     }
+      //     else {
+      //         this.addressForm.controls['selectNope'].enable();
+      //     }
+      // });
+   }
+
 
   getSkills(): void {
     this.commonappservice.getSkills()
