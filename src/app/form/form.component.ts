@@ -35,7 +35,7 @@ export class FormComponent implements OnInit, AfterViewInit, OnDestroy {
  private currentUserSubject: BehaviorSubject<User>;
  public currentUser: Observable<User>;
 
- countries = [{'id':1, 'name':'India'}, {'id':2, 'name': 'USA'}, {'id':3, 'name': 'UK'}];
+ countries = [{id: 'USA', name: 'United States'}, {id: 'UK', name: 'United Kingdom'}, {id: 'FR', name: 'France'}];
  // allSkills: Skill[];
  allSkills: Observable<Skill[]>;
  allTasks$: Observable<Task[]>;

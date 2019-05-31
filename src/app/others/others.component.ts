@@ -31,53 +31,53 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
  
   subscription: Subscription;
 
- private currentUserSubject: BehaviorSubject<User>;
- public currentUser: Observable<User>;
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
- countries = [{'id':1, 'name':'India'}, {'id':2, 'name': 'USA'}, {'id':3, 'name': 'UK'}];
- // allSkills: Skill[];
- allSkills: Observable<Skill[]>;
- allTasks$: Observable<Task[]>;
- // allFonts: Observable<any[]>;
- // allHeros: Observable<any[]>;
+  countries = [{'id':1, 'name':'India'}, {'id':2, 'name': 'USA'}, {'id':3, 'name': 'UK'}];
+  // allSkills: Skill[];
+  allSkills: Observable<Skill[]>;
+  allTasks$: Observable<Task[]>;
+  // allFonts: Observable<any[]>;
+  // allHeros: Observable<any[]>;
 
- allFonts: any[] = AppConstants.ALL_FONT_SIZE;;
- allHeros: Hero[] = AppConstants.HEROES;
- states: Observable<IUSState[]>;
+  allFonts: any[] = AppConstants.ALL_FONT_SIZE;;
+  allHeros: Hero[] = AppConstants.HEROES;
+  states: Observable<IUSState[]>;
 
- version = VERSION;
- stateCtrl: FormControl;
- @ViewChild(MatAutocompleteTrigger) trigger: MatAutocompleteTrigger;
+  version = VERSION;
+  stateCtrl: FormControl;
+  @ViewChild(MatAutocompleteTrigger) trigger: MatAutocompleteTrigger;
  
- langs: string[] = [
+  langs: string[] = [
     'English',
     'French',
     'German',
   ];
 
   exampleForm: FormGroup;
-  id: FormControl;
-  username: String;
-  firstName: String;
-  lastName: String;
-  gender: String;
-  currentDate: Date;
-  country: String;
-  street: String;
-  city: String;
-  zip: number;
-  state: String;
-  location: String;
-  language: String;
-  region: String;
-  role: String;
-  fontSize: String;
-  skill: String;
-  email: String;
-  password: String;
-  mgrOption: boolean;
-  heros: String;
-  tasks: String;
+  // id: FormControl;
+  // username: String;
+  // firstName: String;
+  // lastName: String;
+  // gender: String;
+  // currentDate: Date;
+  // country: String;
+  // street: String;
+  // city: String;
+  // zip: number;
+  // state: String;
+  // location: String;
+  // language: String;
+  // region: String;
+  // role: String;
+  // fontSize: String;
+  // skill: String;
+  // email: String;
+  // password: String;
+  // mgrOption: boolean;
+  // heros: String;
+  // tasks: String;
   //  endDateDivShow: boolean;
   //  managerName: any;
 
@@ -100,38 +100,38 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     console.log('5 - 2 this.skill = ' + this.currentUser.skill + ' task = ' + this.currentUser.task + ' hero = ' + this.currentUser.hero + ' font = ' + this.currentUser.font + ' gender = ' + this.currentUser.gender);
 
-    this.buildForm();
+    // this.buildForm();
 
-    this.stateCtrl = new FormControl();
+    // this.stateCtrl = new FormControl();
   }
 
-  ngAfterViewInit() {
-    this._subscribeToClosingActions();
-  }
+  // ngAfterViewInit() {
+  //   this._subscribeToClosingActions();
+  // }
 
-  ngOnDestroy() {
-    if (this.subscription && !this.subscription.closed) {
-      this.subscription.unsubscribe();
-    }
-  }
+  // ngOnDestroy() {
+  //   if (this.subscription && !this.subscription.closed) {
+  //     this.subscription.unsubscribe();
+  //   }
+  // }
 
-  private _subscribeToClosingActions(): void {
-    if (this.subscription && !this.subscription.closed) {
-      this.subscription.unsubscribe();
-    }
+  // private _subscribeToClosingActions(): void {
+  //   if (this.subscription && !this.subscription.closed) {
+  //     this.subscription.unsubscribe();
+  //   }
 
-    this.subscription = this.trigger.panelClosingActions
-      .subscribe(e => {
-        if (!e || !e.source) {
-          this.stateCtrl.setValue(null);
-        }
-      },
-      err => this._subscribeToClosingActions(),
-      () => this._subscribeToClosingActions());
-  }
+  //   this.subscription = this.trigger.panelClosingActions
+  //     .subscribe(e => {
+  //       if (!e || !e.source) {
+  //         this.stateCtrl.setValue(null);
+  //       }
+  //     },
+  //     err => this._subscribeToClosingActions(),
+  //     () => this._subscribeToClosingActions());
+  // }
 
   ngOnInit() {
-    // this.buildForm();
+    this.buildForm();
     // this.getUser(1);
     // this.fetchUserRecord(1);
 
@@ -158,48 +158,50 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
   public buildForm() {
       // create form with validators
       this.exampleForm = this.formBuilder.group({ 
-      firstName : ['', [Validators.required,Validators.minLength(3), Validators.maxLength(10)]],
-      // lastName : '', 
-      lastName : [this.currentUser.lastName], 
-      gender:[this.currentUser.gender],
-      currentDate : '',
-      country : '',
-      street : '',
-      city : '',
-      zip : '',
-      state : ['', [Validators.required]],
-      location : '',
-      language : '',
-      region : '',
-      role: '',
-      fontSize: [this.currentUser.font],
-      // skill: [],
-      skill: [this.currentUser.skill],
-      //skill: [this.allSkills[2]],
-      email: [''],
-      password: [''],      
-      mgrOption : '',
-      heros : [this.currentUser.hero],
-      tasks : [this.currentUser.task],
+          firstName : ['', [Validators.required,Validators.minLength(3), Validators.maxLength(10)]],
+          // lastName : '', 
+          lastName : [this.currentUser.lastName], 
+          gender:[this.currentUser.gender],
+          currentDate : '',
+          country : '',
+          street : '',
+          city : '',
+          zip : '',
+          state : ['', [Validators.required]],
+          location : '',
+          language : '',
+          region : '',
+          role: '',
+          fontSize: [this.currentUser.font],
+          // skill: [],
+          skill: [this.currentUser.skill],
+          //skill: [this.allSkills[2]],
+          email: [''],
+          password: [''],      
+          mgrOption : '',
+          heros : [this.currentUser.hero],
+          tasks : [this.currentUser.task],
 
-      // skill: 'Angular', task: 1, hero: 12, font: '15'
-     
-      // country: [this.countries[2].id],
-      // checked: false,
-      // indeterminate: false,
-      // locationflag:true,
-      // homelocation:true,
-      // language:'',
-      // skill: [this.allSkills[2]]
+          // skill: 'Angular', task: 1, hero: 12, font: '15'
+        
+          // country: [this.countries[2].id],
+          // checked: false,
+          // indeterminate: false,
+          // locationflag:true,
+          // homelocation:true,
+          // language:'',
+          // skill: [this.allSkills[2]]
     });
 
     console.log('this.exampleForm ############## = ' + this.exampleForm);
     console.log('this.exampleForm ############## = ' + this.exampleForm.get('state'));
 
-    this.states = this.exampleForm
-      // .get('address')
-      .get('state')
-      .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
+    this.stateLoad();
+
+    // this.states = this.exampleForm
+    //   // .get('address')
+    //   .get('state')
+    //   .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
   }
 
   // allSkills: Skill[];
@@ -304,9 +306,9 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
   //         );
   // }
 
-  handler(event: MatAutocompleteSelectedEvent): void {
-    console.log('handler event.option.value = ' +event.option.value);
-    this.stateCtrl.setValue(event.option.value);
+  stateHandler(event: MatAutocompleteSelectedEvent): void {
+    console.log('stateHandler event.option.value = ' +event.option.value);
+    // this.stateCtrl.setValue(event.option.value);
   }
 
   countryChange(event) {
@@ -319,7 +321,7 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
   heroChange(event) {
      console.log('heroChange event.option.value = ' +event.option.value);
   }
-  
+
   stateLoad() {
       this.states = this.exampleForm
       // .get('address')
