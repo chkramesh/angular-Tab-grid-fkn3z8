@@ -1188,3 +1188,4 @@ export class AppComponent  implements OnInit {
 // https://codehandbook.org/how-to-implement-auto-complete-in-angular-4/
 
 // https://stackoverflow.com/questions/46268259/clear-angular-material-autocomplete-after-selection
+// https://code-maze.com/angular-material-form-validation/
