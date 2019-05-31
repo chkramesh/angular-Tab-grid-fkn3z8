@@ -742,16 +742,11 @@ export class AppComponent  implements OnInit {
 // RxJS Operators are functions that build on the observables foundation to enable sophisticated manipulation of collections.
 
 // For example, RxJS defines operators such as map(), filter(), concat(), and flatMap().
-
 // You can use pipes to link operators together. Pipes let you combine multiple functions into a single function.
 
-
 // https://stackoverflow.com/questions/52934247/angular-observer-catch-error-on-component
-
 // https://www.c-sharpcorner.com/article/handling-errors-in-angular/
-
 // https://stackblitz.com/edit/global-error-catching-angular?file=app%2Fapp.module.ts
-
 // https://stackblitz.com/github/melcor76/global-error-handling?file=src%2Fapp%2Fapp.module.ts
 
 // good- use for experiment

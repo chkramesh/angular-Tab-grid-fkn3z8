@@ -112,7 +112,16 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
     console.log('this.exampleForm ############## = ' + this.exampleForm);
     console.log('this.exampleForm ############## = ' + this.exampleForm.get('state'));
 
-    this.states = this.exampleForm
+    this.stateLoad();
+
+    // this.states = this.exampleForm
+    //   // .get('address')
+    //   .get('state')
+    //   .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
+  }
+
+  stateLoad() {
+      this.states = this.exampleForm
       // .get('address')
       .get('state')
       .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
@@ -133,30 +142,30 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
       console.log('onChanges');
       console.log('onChanges country = ' +  this.exampleForm.get('country').value);
       console.log('onChanges state = ' +  this.exampleForm.get('state').value);
-      const addressLine2Control = this.exampleForm.get('addressLine2');
+      // const addressLine2Control = this.exampleForm.get('addressLine2');
       const stateControl = this.exampleForm.controls['state'];
 
       stateControl.setValidators(null);
       stateControl.disable();      
 
-      this.addressForm.get('country').valueChanges
-      .subscribe(selectedCountry => {
-          console.log('onChanges selectedCountry = ' +  selectedCountry);
-          if (selectedCountry != 'USA') {
-              console.log('onChanges selectedCountry state = ' +  this.addressForm.get('state'));
-              this.addressForm.get('addressLine2').enable();
+      this.exampleForm.get('country').valueChanges
+         .subscribe(selectedCountry => {
+            console.log('onChanges selectedCountry = ' +  selectedCountry);
+            if (selectedCountry != 'USA') {
+                console.log('onChanges selectedCountry state = ' +  this.addressForm.get('state'));
+                this.exampleForm.get('addressLine2').enable();
 
-              // below code working
-              this.addressForm.controls['state'].reset();
-              stateControl.disable();
-              stateControl.setValidators(null);
-          }
-          else {
-              this.addressForm.get('addressLine2').disable();
-              this.addressForm.controls['state'].enable();
-              stateControl.setValidators([Validators.required]);
-              stateControl.updateValueAndValidity();
-          }
+                // below code working
+                this.exampleForm.controls['state'].reset();
+                stateControl.disable();
+                stateControl.setValidators(null);
+            }
+            else {
+                this.exampleForm.get('addressLine2').disable();
+                this.exampleForm.controls['state'].enable();
+                stateControl.setValidators([Validators.required]);
+                stateControl.updateValueAndValidity();
+            }
       });
 
       // this.addressForm.get('inputWorks').valueChanges
