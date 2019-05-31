@@ -34,7 +34,7 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
  // private currentUserSubject: BehaviorSubject<User>;
  public currentUser: Observable<User>;
 
- countries = [{'id':1, 'name':'India'}, {'id':2, 'name': 'USA'}, {'id':3, 'name': 'UK'}];
+ countries = [{id: 'USA', name: 'United States'}, {id: 'UK', name: 'United Kingdom'}, {id: 'FR', name: 'France'}];
  // allSkills: Skill[];
  allSkills: Observable<Skill[]>;
  allTasks$: Observable<Task[]>;
@@ -44,6 +44,7 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
  allFonts: any[] = AppConstants.ALL_FONT_SIZE;;
  allHeros: Hero[] = AppConstants.HEROES;
  states: Observable<IUSState[]>; 
+ disable: boolean = true;
 
  constructor(private formBuilder: FormBuilder, 
     // private http: Http,
@@ -96,6 +97,7 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
         city : '',
         zip : '',
         state : ['', [Validators.required]],
+        // state: [[{value: '', disabled: this.disable}], Validators.required],
         location : '',
         language : '',
         region : '',
@@ -120,16 +122,10 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
     //   .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
   }
 
-  stateLoad() {
-      this.states = this.exampleForm
-      // .get('address')
-      .get('state')
-      .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
-  }
-
   
   ngOnInit() {
     this.buildForm();
+    this.onChanges();
     // this.getUser(1);
     // this.fetchUserRecord(1);
 
@@ -152,16 +148,18 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
          .subscribe(selectedCountry => {
             console.log('onChanges selectedCountry = ' +  selectedCountry);
             if (selectedCountry != 'USA') {
-                console.log('onChanges selectedCountry state = ' +  this.addressForm.get('state'));
-                this.exampleForm.get('addressLine2').enable();
+                console.log('onChanges selectedCountry state = ' +  this.exampleForm.get('state'));
+                // this.exampleForm.get('addressLine2').enable();
 
                 // below code working
                 this.exampleForm.controls['state'].reset();
                 stateControl.disable();
                 stateControl.setValidators(null);
+
+                // this.stateLoad();
             }
             else {
-                this.exampleForm.get('addressLine2').disable();
+                // this.exampleForm.get('addressLine2').disable();
                 this.exampleForm.controls['state'].enable();
                 stateControl.setValidators([Validators.required]);
                 stateControl.updateValueAndValidity();
@@ -223,5 +221,14 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
   heroChange(event) {
      console.log('heroChange event.option.value = ' +event.option.value);
   }
+
+  stateLoad() {
+      this.states = this.exampleForm
+      // .get('address')
+      .get('state')
+      .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
+  }
+
+  
 
 }

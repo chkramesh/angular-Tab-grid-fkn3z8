@@ -7,11 +7,16 @@ export interface IUSState {
 }
 
 export function USStateFilter(value: string): IUSState[] {
-  console.log('#################  AppUtils USStateFilter');
+  console.log('#################  AppUtils USStateFilter value = ' + value);
   return USStates.filter(state => {
+    // console.log('#################  AppUtils USStateFilter state.code = ' + state.code + ' state.name = ' +state.name);
+    // return (
+    //   (state.code.length === 2 && state.code.toLowerCase() === value.toLowerCase()) ||
+    //   state.name.toLowerCase().indexOf(value.toLowerCase()) === 0
+    // )
     return (
-      (state.code.length === 2 && state.code.toLowerCase() === value.toLowerCase()) ||
-      state.name.toLowerCase().indexOf(value.toLowerCase()) === 0
+      (state.code.length === 2 && state.code.toLowerCase() === (value != null && value.toLowerCase()) ) ||
+      state.name.toLowerCase().indexOf(value != null && value.toLowerCase()) === 0
     )
   })
 }
