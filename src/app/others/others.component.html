@@ -59,7 +59,7 @@
           <mat-form-field fxFlex="10%">
             <input type="text" placeholder="State" aria-label="State" matInput formControlName="state" [matAutocomplete]="stateAuto">
             <mat-autocomplete #stateAuto="matAutocomplete" (optionSelected)="stateHandler($event)">
-              <mat-option *ngFor="let state of states | async" [value]="state.name">
+              <mat-option *ngFor="let state of states | async" [value]="state.id">
                 {{ state.name }}
               </mat-option>
             </mat-autocomplete>

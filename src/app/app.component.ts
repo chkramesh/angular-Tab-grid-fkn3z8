@@ -1160,6 +1160,28 @@ export class AppComponent  implements OnInit {
 //     this.AcctNo = res[0].AccountNo;
 //   }
 
-
+//  public buildFormVariables() {
+//       username: String;
+//       firstName: String;
+//       lastName: String;
+//       gender: String;
+//       currentDate: Date;
+//       country: String;
+//       street: String;
+//       city: String;
+//       zip: Number;
+//       state: String;
+//       location: String;
+//       language: String;
+//       region: String;
+//       role: String;
+//       fontSize: String;
+//       skill: String;
+//       email: String;
+//       password: String;
+//       mgrOption: Boolean;
+//       heros: String;
+//       tasks: String;
+//   }    
 
 
