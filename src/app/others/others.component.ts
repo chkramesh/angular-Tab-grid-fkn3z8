@@ -35,7 +35,7 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
-  countries = [{'id':1, 'name':'India'}, {'id':2, 'name': 'USA'}, {'id':3, 'name': 'UK'}];
+  countries = [{id: 'USA', name: 'United States'}, {id: 'UK', name: 'United Kingdom'}, {id: 'FR', name: 'France'}];
   // allSkills: Skill[];
   allSkills: Observable<Skill[]>;
   allTasks$: Observable<Task[]>;
@@ -69,6 +69,8 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
     this.getSkillsTest();
     this.getTasks();
     // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    this.onChanges();
 
   }
 
@@ -115,34 +117,29 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
 
    onChanges() {
       console.log('onChanges');
-      console.log('onChanges country = ' +  this.addressForm.get('country').value);
-      console.log('onChanges state = ' +  this.addressForm.get('state').value);
-      const addressLine2Control = this.addressForm.get('addressLine2');
-      const stateControl = this.addressForm.controls['state'];
+      console.log('onChanges country = ' +  this.exampleForm.get('country').value);
+      console.log('onChanges state = ' +  this.exampleForm.get('state').value);
+      // const addressLine2Control = this.exampleForm.get('addressLine2');
+      const stateControl = this.exampleForm.controls['state'];
 
       stateControl.setValidators(null);
       stateControl.disable();      
 
-      this.addressForm.get('country').valueChanges
+      this.exampleForm.get('country').valueChanges
       .subscribe(selectedCountry => {
           console.log('onChanges selectedCountry = ' +  selectedCountry);
           if (selectedCountry != 'USA') {
-              console.log('onChanges selectedCountry state = ' +  this.addressForm.get('state'));
-              this.addressForm.get('addressLine2').enable();
-
-              // https://stackblitz.com/edit/angular-tdjobm?file=app%2Fapp.component.ts
-              // below options are not working for select
-              // this.addressForm.get('state').reset();
-              // this.addressForm.get('state').disable();
+              console.log('onChanges selectedCountry state = ' +  this.exampleForm.get('state'));
+              // this.exampleForm.get('addressLine2').enable();
 
               // below code working
-              this.addressForm.controls['state'].reset();
+              this.exampleForm.controls['state'].reset();
               stateControl.disable();
               stateControl.setValidators(null);
           }
           else {
-              this.addressForm.get('addressLine2').disable();
-              this.addressForm.controls['state'].enable();
+              // this.exampleForm.get('addressLine2').disable();
+              this.exampleForm.controls['state'].enable();
               stateControl.setValidators([Validators.required]);
               stateControl.updateValueAndValidity();
           }
