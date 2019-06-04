@@ -1099,10 +1099,13 @@ export class AppComponent  implements OnInit {
 // https://stackoverflow.com/questions/47617169/angular-httpclient-modify-response-in-service
 
 // MAT autocomplete ********************
+// https://stackblitz.com/github/bithost-gmbh/ngx-mat-select-search-example
 // https://stackblitz.com/edit/autocomplete-force-selection-tests-w2fqww?file=app%2Fapp.component.html
 // https://stackblitz.com/edit/angular-material-autocomplete-async2?file=src%2Fapp%2Fin-memory-data.service.ts
 // https://stackblitz.com/edit/angular-material2-issue-wmgcaj
 // How to use the force-item-list on the mat-autocomplete
+
+// https://stackoverflow.com/questions/40171914/what-is-the-difference-between-formcontrolname-and-formcontrol
 
 // advisorId: any | undefined;
 // const data = fromPromise(advCancelPromiseRsp );
