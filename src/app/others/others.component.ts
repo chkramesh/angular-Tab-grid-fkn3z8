@@ -156,7 +156,14 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
       //         this.addressForm.controls['selectNope'].enable();
       //     }
       // });
-   }
+  }
+
+  stateLoad() {
+      this.states = this.exampleForm
+      // .get('address')
+      .get('state')
+      .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
+  }
 
   getSkills(): void {
     this.commonappservice.getSkills()   
@@ -195,12 +202,7 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
      console.log('heroChange event.option.value = ' +event.option.value);
   }
 
-  stateLoad() {
-      this.states = this.exampleForm
-      // .get('address')
-      .get('state')
-      .valueChanges.pipe(startWith(''), map(value => USStateFilter(value)))
-  }
+ 
 
   
 
