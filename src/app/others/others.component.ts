@@ -112,7 +112,7 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
     console.log('this.exampleForm ############## = ' + this.exampleForm);
     console.log('this.exampleForm ############## = ' + this.exampleForm.get('state'));
 
-    this.stateLoad();
+    this.stateFilter();
   }
 
    onChanges() {
@@ -158,7 +158,7 @@ export class OthersComponent implements OnInit { //, AfterViewInit, OnDestroy {
       // });
   }
 
-  stateLoad() {
+  stateFilter() {
       this.states = this.exampleForm
       // .get('address')
       .get('state')
