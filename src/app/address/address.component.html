@@ -3,14 +3,32 @@ address works!
 </p> -->
 
 <!-- Page content -->
+
+<!-- <div class="basic-container">
+  <mat-form-field>
+                          <mat-label>Performance Calculation</mat-label>
+                          <mat-select  formControlName="username">
+                            <mat-option value="54">IRR</mat-option>
+                            <mat-option value="56">DTWR</mat-option>
+                            <mat-option value="53">Modified Dietz</mat-option>
+                            <mat-option value="98">FI Default</mat-option>
+                            <mat-option value="99">Conventional Logic</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+
+</div> -->
+
+
 <div class="basic-container">
   <mat-card>
     <!-- Page form start -->
     <form [formGroup]="exampleForm" novalidate (ngSubmit)="save(exampleForm, exampleForm.value, exampleForm.valid, $event)" >
-    <mat-card-title>Reactive form - Sept/30/201</mat-card-title>
+    <mat-card-title>Reactive form - Sept/30/2019</mat-card-title>
     <mat-card-content>
        <!-- fxLayoutAlign="center"  -->
         <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
+
+        
           
           <!-- Street input field -->
           <mat-form-field class="example-full-width" fxFlex="10%">

@@ -74,6 +74,10 @@ export class AddressComponent implements OnInit, AfterViewInit, OnDestroy {
 
   exampleForm: FormGroup;
   id: FormControl;
+
+  // performanceCalculation: ['', []];
+  // performanceCalculation: String;
+
   username: String;
   firstName: String;
   lastName: String;
@@ -95,6 +99,7 @@ export class AddressComponent implements OnInit, AfterViewInit, OnDestroy {
   mgrOption: boolean;
   heros: String;
   tasks: String;
+  performanceCalculation: String;
   //  endDateDivShow: boolean;
   //  managerName: any;
 
