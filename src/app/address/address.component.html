@@ -1,3 +1,274 @@
-<p>
+<!-- <p>
 address works!
-</p>
+</p> -->
+
+<!-- Page content -->
+<div class="basic-container">
+  <mat-card>
+    <!-- Page form start -->
+    <form [formGroup]="exampleForm" novalidate (ngSubmit)="save(exampleForm, exampleForm.value, exampleForm.valid, $event)" >
+    <mat-card-title>Reactive form - Sept/30/201</mat-card-title>
+    <mat-card-content>
+       <!-- fxLayoutAlign="center"  -->
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
+          
+          <!-- Street input field -->
+          <mat-form-field class="example-full-width" fxFlex="10%">
+            <input matInput placeholder="First Name"  formControlName="firstName">
+            <mat-error *ngIf="exampleForm.controls.firstName.invalid">
+              <span [hidden]="!exampleForm.controls['firstName'].errors.required">
+                This field is required.
+              </span> 
+              <span [hidden]="!exampleForm.controls['firstName'].errors.maxlength">
+                Maximmum alowed charactes are 10
+              </span>  
+              <span [hidden]="!exampleForm.controls['firstName'].errors.minlength">
+                Minium alowed charactes are 3
+              </span>          
+          </mat-error>
+          </mat-form-field>
+
+          <!-- City input field -->
+          <mat-form-field class="example-full-width" fxFlex="10%"> 
+            <input matInput placeholder="Last Name" formControlName="lastName">
+            <mat-hint align="end">Last Name</mat-hint>
+          </mat-form-field>
+
+          <mat-form-field fxFlex="7">                
+          <input matInput type="date" name="Current Date" formControlName="currentDate" placeholder="Current Date">
+          </mat-form-field>
+
+          <mat-radio-group name="gender" fxFlex="40" class="radioAlignment" formControlName="gender">
+            <label>Gender:</label>
+            <mat-radio-button class="example-margin" value="M">Male</mat-radio-button>
+            <mat-radio-button value="F">Female</mat-radio-button>
+          </mat-radio-group> 
+        </div>
+
+       <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
+          <mat-form-field fxFlex="10">
+            <input matInput type="text" placeholder="Street" formControlName="street" required>          
+          </mat-form-field>
+
+          <mat-form-field fxFlex="10">
+            <input matInput type="text" placeholder="City" formControlName="city">
+          </mat-form-field>
+          <mat-form-field fxFlex="10">
+            <input matInput  type="text"  placeholder="Zip" formControlName="zip">
+          </mat-form-field>
+          <mat-form-field fxFlex="10">
+            <input matInput  type="text"  placeholder="State" formControlName="state">
+          </mat-form-field>
+       
+        </div>
+
+         <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
+          <mat-form-field fxFlex="10">
+            <input matInput  type="text"  placeholder="Location" formControlName="location">
+          </mat-form-field>
+
+        <mat-form-field fxFlex="10">
+          <input matInput  type="text"  placeholder="Language" formControlName="language">
+        </mat-form-field>
+
+        <mat-form-field fxFlex="10">
+          <input matInput  type="text"  placeholder="Region" formControlName="region">
+        </mat-form-field>
+
+         <mat-form-field fxFlex="10">
+          <input matInput  type="text"  placeholder="Role" formControlName="role">
+        </mat-form-field>
+
+         <!-- <mat-form-field fxFlex="10">
+          <input matInput  type="text"  placeholder="Test5" formControlName="test5">
+        </mat-form-field>
+
+         <mat-form-field fxFlex="10">
+          <input matInput  type="text"  placeholder="Test6" formControlName="test6">
+        </mat-form-field> -->
+      </div>
+
+       <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
+       
+        <!--
+        <mat-form-field >
+          <input matInput placeholder="Country" formControlName="country">   
+        </mat-form-field>
+        -->
+
+        <!--
+        <section class="example-section">
+          <label class="example-margin">Country:</label>
+          <select id="contry" formControlName="country">
+            <option value="">Please select a country</option>
+            <option *ngFor="let contry of countries" [value]="contry.id">{{contry.name}}</option>
+          </select>   
+        </section>
+        -->
+
+        <mat-form-field>
+          <mat-label>Select a country</mat-label>
+          <mat-select value="" (selectionChange)="countryChange($event)" formControlName="country">
+            <mat-option value="">Please select a country</mat-option>
+            <mat-option *ngFor="let contry of countries" [value]="contry.id">{{contry.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+         <!-- <mat-form-field>
+          <mat-label>Select Font size</mat-label>
+          <mat-select #fontSize value="15px" (selectionChange)="resizeTextArea()">
+            <mat-option value="10px">10px</mat-option>
+            <mat-option value="15px">15px</mat-option>
+            <mat-option value="20px">20px</mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
+        <mat-form-field fxFlex="8">
+          <mat-label>Select Font size</mat-label>
+          <mat-select (selectionChange)="resizeTextArea($event)" formControlName="fontSize">
+            <mat-option value="">Select a Font</mat-option>
+            <mat-option *ngFor="let fonts of allFonts" [value]="fonts.id">
+            {{ fonts.displayName }} </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- <mat-form-field fxFlex="10">
+          <mat-label>Select a Skill</mat-label>
+          <mat-select (selectionChange)="languageChange($event)" formControlName="skill">
+            <mat-option value="">Select a Skill</mat-option>
+            <mat-option *ngFor="let skill of allSkills | async" [value]="skill.name">
+            {{ skill.displayName }} </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
+        <mat-form-field fxFlex="10">
+          <mat-label>Select a Skill</mat-label>
+          <mat-select (selectionChange)="languageChange($event)" formControlName="skill">
+            <mat-option value="">Select a Skill</mat-option>
+            <mat-option *ngFor="let skill of allSkills" [value]="skill.name">
+            {{ skill.displayName }} </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+         <mat-form-field fxFlex="10">
+          <mat-label>Select a Hero</mat-label>
+          <mat-select (selectionChange)="heroChange($event)" formControlName="heros">
+            <mat-option value="">Select a Hero</mat-option>
+            <mat-option *ngFor="let hero of allHeros" [value]="hero.id">
+            {{ hero.name }} </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="10">
+          <mat-label>Select a Task</mat-label>
+          <mat-select formControlName="tasks">
+            <mat-option value="">Select a Task</mat-option>
+            <mat-option *ngFor="let task of allTasks$ | async" [value]="task.id">
+            {{ task.description }} </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field fxFlex="10">
+          <input matInput  type="text"  placeholder="Email" formControlName="email">
+        </mat-form-field>
+
+         <mat-form-field fxFlex="10">
+          <input matInput  type="text"  placeholder="Mgr Option" formControlName="mgrOption">
+        </mat-form-field>
+
+      </div>
+
+       <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="2.5%" fxLayoutAlign="left" layout-margin>
+
+        <!-- <mat-form-field fxFlex="10">
+          <mat-label>Select a Skill</mat-label>
+          <mat-select (selectionChange)="languageChange($event)" formControlName="skill">
+            <mat-option value="">Select a Skill</mat-option>
+            <mat-option *ngFor="let skill of allSkills" [value]="skill.name">
+            {{ skill.displayName }} </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+         <mat-form-field fxFlex="10">
+          <mat-label>Select a Hero</mat-label>
+          <mat-select (selectionChange)="heroChange($event)" formControlName="heros">
+            <mat-option value="">Select a Hero</mat-option>
+            <mat-option *ngFor="let hero of allHeros" [value]="hero.id">
+            {{ hero.name }} </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
+        <!-- <mat-form-field fxFlex="10">
+          <mat-label>Select a Task</mat-label>
+          <mat-select formControlName="tasks">
+            <mat-option value="">Select a Task</mat-option>
+            <mat-option *ngFor="let task of allTasks$ | async" [value]="task.id">
+            {{ task.description }} </mat-option>
+          </mat-select>
+        </mat-form-field> -->
+
+         <!-- <mat-form-field fxFlex="30%">
+            <input type="text" placeholder="State" aria-label="State" matInput formControlName="state" [matAutocomplete]="stateAuto">
+            <mat-autocomplete #stateAuto="matAutocomplete">
+              <mat-option *ngFor="let state of states | async" [value]="state.name">
+                {{ state.name }}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="userForm.get('address').get('state').hasError('required')">
+              State is required
+            </mat-error>
+          </mat-form-field> -->
+
+          <mat-form-field fxFlex="30%">
+            <input type="text" placeholder="State" aria-label="State" matInput formControlName="state" [matAutocomplete]="stateAuto">
+            <mat-autocomplete #stateAuto="matAutocomplete" (optionSelected)="handler($event)">
+              <mat-option *ngFor="let state of states | async" [value]="state.code">
+                {{ state.name }}
+              </mat-option>
+            </mat-autocomplete>
+            <!-- <mat-error *ngIf="exampleForm.get('state').hasError('required')">
+              State is required
+            </mat-error> -->
+
+            <mat-error *ngIf="exampleForm.get('state').hasError('required')">
+              <span [hidden]="!exampleForm.controls['state'].errors.required">
+                  This field is required.
+              </span>
+            </mat-error>
+
+            <!-- <mat-error *ngIf="exampleForm.controls.firstName.invalid">
+              <span [hidden]="!exampleForm.controls['firstName'].errors.required">
+                This field is required.
+              </span> 
+              <span [hidden]="!exampleForm.controls['firstName'].errors.maxlength">
+                Maximmum alowed charactes are 10
+              </span>  
+              <span [hidden]="!exampleForm.controls['firstName'].errors.minlength">
+                Minium alowed charactes are 3
+              </span>          
+          </mat-error> -->
+
+
+          </mat-form-field>
+
+      </div>
+
+
+     
+      
+    </mat-card-content>
+
+    <pre>{{exampleForm.value | json}}</pre>
+
+     
+
+   
+    </form>
+
+  </mat-card>   
+
+
+</div>
+  
+
+
